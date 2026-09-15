@@ -1,31 +1,58 @@
-# English Literature Experiment
+# English Literature Library / Experimental Edition
 
-An experimental second interface for the English Literature Library. The production library is left untouched while this repo tests a more editorial, physical-book approach.
+An experimental editorial edition of the English Literature Library, built as a separate research playground under **TensoraMax Lab**.
 
-## Current build
+## What this version is
 
-- 33 real catalogue works from the library data model
-- Real period, genre, subject, theme, source, licence and reading-link fields
-- Generated domains, authors, subjects and timeline sections
-- Working catalogue search and genre filters
-- Working metadata modal
-- Working 3D-style book turn interaction, including a real second state
-- **Read now** routes to an internal `reader.html` shell instead of immediately throwing the user onto the external source
-- The original source remains available as a secondary fallback link inside the reader
-- Copyrighted works remain metadata-only when no reading URL exists
-- Responsive mobile layout
-- Experimental design lab
+This is not a replacement for the original English Literature Library. It is the experimental layer.
 
-## Reader behaviour
+**Original Library:** https://tensoramax.me/English-library-/
 
-The reader shell is intentionally part of the experiment. A public reading source is loaded inside the reading frame when the source permits embedding. If a source blocks framing, the user still lands on the library's reader page and can choose the source manually.
+**Experiment:** https://github.com/Yuri-code-dot/English-literature-experiment-
 
-## Data provenance
+The experiment keeps the catalogue concept and recorded metadata while changing the interface into a physical, editorial reading environment.
 
-The catalogue records are adapted from `Yuri-code-dot/English-library-`, specifically the `src/data/books.ts` model. The experiment currently keeps the same 33-work catalogue represented in that model, while simplifying the browser-side shape for the static prototype.
+## Interaction goals
+
+- Physical book opening interaction instead of a decorative card
+- Internal reading room instead of dumping the user into a raw external webpage
+- Public-domain Gutenberg text loaded into the custom reader when the browser permits the text endpoint
+- Clear original-source attribution and direct source links
+- Metadata-only handling for copyrighted records
+- Search and catalogue filtering
+- Author and curriculum subject views
+- Period timeline connected to the catalogue
+- TensoraMax Lab research identity and About section
+- Clear `Powered by TensoraMax Lab` attribution
+- One-click return to the original production library
+- Mobile-first layout
+
+## TensoraMax Lab
+
+TensoraMax Lab is an open research and development space exploring:
+
+`LLMs · SLMs · Agents · Systems · Humans`
+
+The Lab investigates language models, small models, agents, intelligent systems, digital knowledge and their effects on humans. This literature library is one experiment in that broader work.
+
+## Data
+
+`data.js` contains the experimental catalogue records copied from the English Literature Library project and normalized for this standalone edition. The experiment should not silently invent reading rights. Records without a legitimate reading endpoint remain metadata-only.
+
+## Reading room
+
+The reader attempts a direct public-domain text endpoint for Project Gutenberg records, then formats the returned text into the experiment's own reading layout. If a static browser deployment cannot fetch the text because of source or browser restrictions, the reader shows a clear fallback and an original-source link rather than embedding a raw external webpage.
 
 ## Design direction
 
-Cream paper, black ink, red annotations, fine grid lines, oversized editorial typography, physical-book metaphors, real interactions and room for future WebGL work.
+Cream paper, black ink, red accent, editorial typography, physical-book metaphors, quiet archive surfaces and a deliberately experimental Lab layer.
 
-This repository is intentionally separate from the production library so the visual system can evolve without destabilising the main application.
+The guiding principle is simple:
+
+> The archive should feel like a literary object, not a dashboard containing book cards.
+
+## Status
+
+Experimental / actively evolving.
+
+© 2026 English Literature Library / Experimental Edition · Powered by TensoraMax Lab
