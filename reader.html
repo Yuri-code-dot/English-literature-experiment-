@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Reader / English Literature</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;600;800&family=Playfair+Display:ital,wght@0,500;1,500&display=swap');
+:root{--paper:#eee9dc;--ink:#10100e;--muted:#6e6a61;--red:#ef321d;--line:rgba(16,16,14,.16)}*{box-sizing:border-box}html,body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif}body:before{content:"";position:fixed;inset:0;pointer-events:none;opacity:.2;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;z-index:0}.top{position:sticky;top:0;z-index:5;height:66px;border-bottom:1px solid var(--line);background:rgba(238,233,220,.84);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;padding:0 28px}.mono{font:10px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.12em}.top a:hover{color:var(--red)}main{position:relative;z-index:1;max-width:1500px;margin:auto;padding:80px 5vw}.head{display:flex;justify-content:space-between;gap:30px;align-items:end;margin-bottom:30px}.head h1{font-size:clamp(3.5rem,9vw,9rem);line-height:.82;letter-spacing:-.08em;margin:0}.head h1 em{font-family:'Playfair Display',serif;font-weight:500}.meta{max-width:430px;line-height:1.6;color:var(--muted)}.sourcebar{display:flex;justify-content:space-between;gap:15px;align-items:center;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:13px 0;margin-bottom:18px}.sourcebar a,.back{border:1px solid var(--ink);padding:11px 14px;font:10px 'DM Mono',monospace;text-transform:uppercase}.sourcebar a:hover,.back:hover{background:var(--ink);color:var(--paper)}.frame{height:calc(100vh - 260px);min-height:600px;border:1px solid var(--line);background:#fff;box-shadow:0 30px 90px rgba(16,16,14,.13);overflow:hidden}.frame iframe{width:100%;height:100%;border:0;background:#fff}.note{margin-top:18px;font:10px/1.6 'DM Mono',monospace;color:var(--muted)}.blocked{padding:60px;display:none}.blocked h2{font-size:3rem;letter-spacing:-.06em;margin:0 0 15px}.blocked p{max-width:600px;line-height:1.7}@media(max-width:700px){.top{padding:0 16px}.top .mono:last-child{display:none}main{padding:55px 18px}.head{display:block}.meta{margin-top:25px}.frame{height:70vh;min-height:500px}.sourcebar{align-items:flex-start;flex-direction:column}.blocked{padding:30px}}
+</style>
+</head>
+<body>
+<header class="top"><a class="mono" href="index.html#books">← back to catalogue</a><span class="mono" id="readerLabel">reader / loading</span></header>
+<main>
+<section class="head"><h1 id="title">Open<br><em>the work.</em></h1><div class="meta"><div class="mono" id="meta"></div><p id="description"></p></div></section>
+<div class="sourcebar"><span class="mono" id="sourceName">reading source</span><div><a id="sourceLink" target="_blank" rel="noopener">open source ↗</a></div></div>
+<div class="frame" id="frame"><iframe id="readerFrame" title="Literature reading source" loading="eager"></iframe><div class="blocked" id="blocked"><h2>Source stays yours.</h2><p>The source declined to render inside an iframe. The experiment keeps you on this reader shell and gives you a direct source button above rather than silently throwing you somewhere else.</p></div></div>
+<div class="note">This reader is a presentation shell around the catalogue's recorded reading source. Copyrighted records remain metadata-only.</div>
+</main>
+<script src="data.js"></script><script>
+const slug=new URLSearchParams(location.search).get('book');const book=(LIBRARY_DATA.books||[]).find(b=>b.slug===slug);const $=id=>document.getElementById(id);
+if(!book){$('title').innerHTML='Record<br><em>not found.</em>';$('description').textContent='The catalogue could not find this work.';$('readerLabel').textContent='reader / missing';$('frame').style.display='none'}else if(!book.readingUrl){$('title').innerHTML=`${book.title.replace(/</g,'&lt;')}<br><em>metadata only.</em>`;$('meta').textContent=`${book.year} / ${book.period} / ${book.genre}`;$('description').textContent=book.description;$('sourceName').textContent=book.source;$('sourceLink').style.display='none';$('frame').style.display='none';$('readerLabel').textContent='reader / metadata only'}else{ $('title').innerHTML=`${book.title.replace(/</g,'&lt;')}<br><em>inside.</em>`;$('meta').textContent=`${book.year} / ${book.period} / ${book.genre} / ${book.author}`;$('description').textContent=book.description;$('sourceName').textContent=`source / ${book.source}`;$('sourceLink').href=book.readingUrl;$('readerLabel').textContent='reader / internal shell';$('readerFrame').src=book.readingUrl; }
+</script>
+</body>
+</html>
