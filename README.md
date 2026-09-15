@@ -10,7 +10,16 @@ This is not a replacement for the original English Literature Library. It is the
 
 **Experiment:** https://github.com/Yuri-code-dot/English-literature-experiment-
 
-The experiment keeps the catalogue concept and recorded metadata while changing the interface into a physical, editorial reading environment.
+The experiment keeps the real catalogue concept and recorded metadata while changing the interface into a physical, editorial reading environment.
+
+## Desktop + mobile
+
+The UI is intentionally composed for both form factors rather than simply shrinking the desktop page:
+
+- **Desktop:** wide editorial navigation, physical two-page book spread, catalogue grid, authors, subjects, timeline, Design Lab and About/Lab sections.
+- **Mobile:** compact top bar, thumb-friendly bottom navigation, single-page book interaction, one-column catalogue, touch-sized controls and a reading-first layout.
+- **Desktop View:** mobile users can use the red `VIEW DESKTOP` control to open the wider desktop composition when they want the full archive layout.
+- **Reading Room:** mobile reading removes unnecessary chrome and exposes compact controls while desktop reading provides a dedicated control rail.
 
 ## Interaction goals
 
@@ -25,7 +34,6 @@ The experiment keeps the catalogue concept and recorded metadata while changing 
 - TensoraMax Lab research identity and About section
 - Clear `Powered by TensoraMax Lab` attribution
 - One-click return to the original production library
-- Mobile-first layout
 
 ## TensoraMax Lab
 
