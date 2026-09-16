@@ -1,0 +1,114 @@
+{
+  "title": "YURI'S SEMESTER DETAILS",
+  "student": {
+    "name": "Baki Sora",
+    "programme": "B.A. English (FYUP)",
+    "university": "Rajiv Gandhi University",
+    "semester": 5,
+    "major": "English Literature",
+    "minor": "Geography"
+  },
+  "source_note": "Semester V curriculum indexed for the English Literature Library experiment. English course details were extracted with Firecrawl from an RGU Department of English FYUP/NEP-2020 syllabus PDF. Geography Minor Course-5 is recorded from the RGU Geography NEP-2020 syllabus listing.",
+  "major": {
+    "subject": "English Literature",
+    "papers": [
+      {
+        "paper": "Major 9",
+        "code": "ENG-CC-3510",
+        "title": "Modern European Drama",
+        "credits": 4,
+        "texts": [
+          {"author": "August Strindberg", "title": "The Father"},
+          {"author": "Bertolt Brecht", "title": "Life of Galileo"},
+          {"author": "Samuel Beckett", "title": "Waiting for Godot"},
+          {"author": "Harold Pinter", "title": "The Birthday Party"}
+        ]
+      },
+      {
+        "paper": "Major 10",
+        "code": "ENG-CC-3520",
+        "title": "American Literature",
+        "credits": 4,
+        "texts": [
+          {"author": "Ernest Hemingway", "title": "The Old Man and the Sea"},
+          {"author": "Arthur Miller", "title": "All My Sons"},
+          {"author": "Edgar Allan Poe", "title": "The Purloined Letter"},
+          {"author": "Booker T. Washington", "title": "Up from Slavery", "scope": "Chapter 1"},
+          {"author": "Maya Angelou", "title": "I Know Why the Caged Bird Sings", "scope": "Chapter 15"},
+          {"author": "William Faulkner", "title": "Dry September"},
+          {"author": "Walt Whitman", "title": "O Captain! My Captain!"},
+          {"author": "Emily Dickinson", "title": "This was a Poet"},
+          {"author": "Emily Dickinson", "title": "I heard a Fly buzz — when I died —"},
+          {"author": "Robert Frost", "title": "Mending Wall"},
+          {"author": "Langston Hughes", "title": "The Negro Speaks of Rivers"}
+        ]
+      },
+      {
+        "paper": "Major 11",
+        "code": "ENG-CC-3530",
+        "title": "Postcolonial Literatures",
+        "credits": 4,
+        "texts": [
+          {"author": "Ngũgĩ wa Thiong'o", "title": "The Language of African Literature", "source_work": "Decolonising the Mind", "scope": "Sections 1.i and 1.ii"},
+          {"author": "Frantz Fanon", "title": "The Fact of Blackness"},
+          {"author": "Harish Trivedi", "title": "Colonial Influence, Postcolonial Intertextuality: Western Literature and Indian Literature"},
+          {"author": "V. S. Naipaul", "title": "A House for Mr. Biswas"},
+          {"author": "Chinua Achebe", "title": "Things Fall Apart"},
+          {"author": "Bessie Head", "title": "The Collector of Treasures"},
+          {"author": "Gayatri Spivak", "title": "The Breast Giver"},
+          {"author": "Margaret Atwood", "title": "This is a Photograph of Me"},
+          {"author": "Derek Walcott", "title": "A Far Cry from Africa"},
+          {"author": "Langston Hughes", "title": "The White Fiends"},
+          {"author": "Mamang Dai", "title": "Small Towns and the River"}
+        ]
+      },
+      {
+        "paper": "Major 12",
+        "code": "ENG-CC-3540",
+        "title": "Women's Writing",
+        "credits": 2,
+        "texts": [
+          {"author": "Judith Wright", "title": "Woman to Man"},
+          {"author": "Sylvia Plath", "title": "Lady Lazarus"},
+          {"author": "Eunice de Souza", "title": "Advice to Women"},
+          {"author": "Kamala Das", "title": "Eunuch"},
+          {"author": "Mamang Dai", "title": "The Black Hill"},
+          {"author": "Katherine Mansfield", "title": "Bliss"},
+          {"author": "Leslie Marmon Silko", "title": "Yellow Woman"},
+          {"author": "Bama", "title": "Chilli Powder"},
+          {"author": "Mary Wollstonecraft", "title": "A Vindication of the Rights of Woman"},
+          {"author": "Virginia Woolf", "title": "Professions for Women"},
+          {"author": "Elaine Showalter", "title": "Introduction", "source_work": "A Literature of Their Own"},
+          {"author": "Ramabai Ranade", "title": "A Testimony of our Inexhaustible Treasures"}
+        ]
+      }
+    ]
+  },
+  "geography_minor": {
+    "subject": "Geography",
+    "paper": "Minor Course-5",
+    "code": "GEO-MC-3110",
+    "title": "Economic Geography",
+    "credits": 4,
+    "units": [
+      "Introduction to Economic Geography: meaning, definition, nature, scope, recent trends, relationship with Economics and other disciplines, economic activities and classification into primary, secondary and tertiary activities.",
+      "Resources: concepts and classification, natural resources, ferrous and non-ferrous minerals, world mineral distribution, energy resources, conservation and sustainable resource management.",
+      "Primary Activities: mining, forestry, fishing, agriculture, physical and socio-cultural controls on agriculture, spatial crop distribution, major world food crops and cash crops.",
+      "Secondary and Tertiary Activities: industrial location factors, iron and steel, fertilizer, chemical and paper industries, transport geography, factors controlling transport development, road, rail, water and air transport."
+    ]
+  },
+  "internship": {
+    "code": "ENG-IN-3510",
+    "credits": 2,
+    "status": "Semester V compulsory internship"
+  },
+  "catalogue_tags": [
+    "semester-5",
+    "yuri",
+    "english-literature",
+    "geography",
+    "rgu",
+    "fyup",
+    "nep-2020"
+  ]
+}
