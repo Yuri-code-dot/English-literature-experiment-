@@ -4,7 +4,7 @@ import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, AUTH_REDIRECT_URL } from './con
 export const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
 
 export async function signIn(provider) {
-  const { error } = await supabase.auth.signInWithOAuth({
+  const { data, error } = await supabase.auth.signInWithOAuth({
     provider,
     options: {
       redirectTo: AUTH_REDIRECT_URL,
@@ -12,6 +12,11 @@ export async function signIn(provider) {
   })
 
   if (error) throw error
+  if (!data?.url) throw new Error('Supabase did not return an OAuth URL.')
+
+  // Redirect explicitly so the browser does not depend on Supabase's
+  // automatic redirect behavior in this static GitHub Pages experiment.
+  window.location.assign(data.url)
 }
 
 export async function signInWithGitHub() {
