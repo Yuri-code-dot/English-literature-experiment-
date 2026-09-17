@@ -1,0 +1,57 @@
+/* Universal Library catalogue records.
+ * Starter collection uses Project Gutenberg public-domain records.
+ * Each record is normalized for the shared Reading Room.
+ */
+window.LIBRARY_CATALOGUE_BOOKS = {
+  history: [
+    {slug:'anabasis-of-alexander',title:'The Anabasis of Alexander',author:'Arrian',year:180,genre:'history',field:'Ancient History',description:'A classical account of Alexander the Great and his campaigns.',readingUrl:'https://www.gutenberg.org/ebooks/46976',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'beacon-lights-ancient',title:'Beacon Lights of History, Volume 03: Ancient Achievements',author:'John Lord',year:1882,genre:'history',field:'Ancient History',description:'A nineteenth-century survey of important developments in ancient civilizations.',readingUrl:'https://www.gutenberg.org/ebooks/10484',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'history-of-freedom',title:'The History of Freedom, and Other Essays',author:'John Emerich Edward Dalberg Acton',year:1907,genre:'history',field:'Political History',description:'Essays examining historical ideas and institutions around freedom.',readingUrl:'https://www.gutenberg.org/ebooks/15714',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  'political-science': [
+    {slug:'social-contract-discourses',title:'The Social Contract & Discourses',author:'Jean-Jacques Rousseau',year:1762,genre:'political theory',field:'Political Theory',description:'A foundational work in political philosophy concerning authority, society and political legitimacy.',readingUrl:'https://www.gutenberg.org/ebooks/46333',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'considerations-representative-government',title:'Considerations on Representative Government',author:'John Stuart Mill',year:1861,genre:'political theory',field:'Political Institutions',description:'A study of representative government and political participation.',readingUrl:'https://www.gutenberg.org/ebooks/5669',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'the-prince',title:'The Prince',author:'Niccolò Machiavelli',year:1532,genre:'political theory',field:'Political Thought',description:'A classic text on political power, leadership and statecraft.',readingUrl:'https://www.gutenberg.org/ebooks/1232',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  economics: [
+    {slug:'wealth-of-nations',title:'An Inquiry into the Nature and Causes of the Wealth of Nations',author:'Adam Smith',year:1776,genre:'economics',field:'Economic Thought',description:'A major work of classical political economy concerning production, exchange and wealth.',readingUrl:'https://www.gutenberg.org/ebooks/3300',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'principles-political-economy-mill',title:'Principles of Political Economy',author:'John Stuart Mill',year:1848,genre:'economics',field:'Economic Thought',description:'A comprehensive nineteenth-century treatment of production, distribution and political economy.',readingUrl:'https://www.gutenberg.org/ebooks/30107',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'principles-political-economy-ricardo',title:'On the Principles of Political Economy, and Taxation',author:'David Ricardo',year:1817,genre:'economics',field:'Economic Thought',description:'A foundational classical economics text on value, distribution and taxation.',readingUrl:'https://www.gutenberg.org/ebooks/33310',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  accountancy: [
+    {slug:'accounting-theory-practice-v1',title:'Accounting Theory and Practice, Volume 1',author:'Roy B. Kester',year:1922,genre:'accountancy',field:'Financial Accounting',description:'A college-level introduction to accounting records, balance sheets and accounting principles.',readingUrl:'https://www.gutenberg.org/ebooks/70367',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'accounting-theory-practice-v2',title:'Accounting Theory and Practice, Volume 2',author:'Roy B. Kester',year:1922,genre:'accountancy',field:'Advanced Accounting',description:'An advanced volume covering corporate accounting and financial valuation.',readingUrl:'https://www.gutenberg.org/ebooks/70556',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'cyclopedia-commerce-accountancy-v1',title:'Cyclopedia of Commerce, Accountancy, Business Administration, Vol. 1',author:'American School of Correspondence',year:1910,genre:'accountancy',field:'Commerce & Accounting',description:'A broad early twentieth-century reference covering accounting, auditing and business administration.',readingUrl:'https://www.gutenberg.org/ebooks/46424',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  physics: [
+    {slug:'opticks',title:'Opticks',author:'Isaac Newton',year:1704,genre:'physics',field:'Optics',description:'Newton’s treatise on the reflection, refraction, inflection and colours of light.',readingUrl:'https://www.gutenberg.org/ebooks/33504',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'relativity-special-general',title:'Relativity: The Special and General Theory',author:'Albert Einstein',year:1916,genre:'physics',field:'Relativity',description:'An accessible presentation of special and general relativity.',readingUrl:'https://www.gutenberg.org/ebooks/5001',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'science-and-hypothesis',title:'Science and Hypothesis',author:'Henri Poincaré',year:1902,genre:'physics',field:'Foundations of Physics',description:'A philosophical and mathematical examination of space, force, probability and physical theory.',readingUrl:'https://www.gutenberg.org/ebooks/37157',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  chemistry: [
+    {slug:'chemical-history-candle',title:'The Chemical History of a Candle',author:'Michael Faraday',year:1861,genre:'chemistry',field:'General Chemistry',description:'Six lectures using a candle to explore combustion, gases, water and atmospheric phenomena.',readingUrl:'https://www.gutenberg.org/ebooks/14474',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'sceptical-chymist',title:'The Sceptical Chymist',author:'Robert Boyle',year:1661,genre:'chemistry',field:'History of Chemistry',description:'A landmark early work challenging older theories about the composition of matter.',readingUrl:'https://www.gutenberg.org/ebooks/22914',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'principles-chemistry-v1',title:'The Principles of Chemistry, Volume I',author:'Dmitry Ivanovich Mendeleyev',year:1897,genre:'chemistry',field:'General Chemistry',description:'A systematic treatment of chemical principles associated with Mendeleyev’s scientific work.',readingUrl:'https://www.gutenberg.org/ebooks/51326',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  biology: [
+    {slug:'origin-species',title:'On the Origin of Species by Means of Natural Selection',author:'Charles Darwin',year:1859,genre:'biology',field:'Evolution',description:'Darwin’s foundational work presenting evidence for evolution by natural selection.',readingUrl:'https://www.gutenberg.org/ebooks/1228',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'story-living-machine',title:'The Story of the Living Machine',author:'H. W. Conn',year:1899,genre:'biology',field:'Life Sciences',description:'An introduction to biological processes through the historical idea of the living organism as a machine.',readingUrl:'https://www.gutenberg.org/ebooks/16487',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'civic-biology',title:'A Civic Biology, Presented in Problems',author:'George W. Hunter',year:1914,genre:'biology',field:'Biology Education',description:'A historical biology textbook presented through problems and questions.',readingUrl:'https://www.gutenberg.org/ebooks/39969',source:'Project Gutenberg',license:'Public Domain',historicalNote:'Contains historically obsolete and harmful scientific claims. Read as a historical document, not as current scientific guidance.'}
+  ],
+  mathematics: [
+    {slug:'calculus-made-easy',title:'Calculus Made Easy',author:'Silvanus P. Thompson',year:1910,genre:'mathematics',field:'Calculus',description:'A classic accessible introduction to differential and integral calculus.',readingUrl:'https://www.gutenberg.org/ebooks/33283',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'euclid-first-six-books',title:'The First Six Books of the Elements of Euclid',author:'Euclid / John Casey',year:1885,genre:'mathematics',field:'Geometry',description:'The first six books of Euclid’s Elements with mathematical notes and propositions.',readingUrl:'https://www.gutenberg.org/ebooks/21076',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'course-pure-mathematics',title:'A Course of Pure Mathematics',author:'G. H. Hardy',year:1908,genre:'mathematics',field:'Analysis & Calculus',description:'A rigorous classic textbook covering real variables, calculus and mathematical analysis.',readingUrl:'https://www.gutenberg.org/ebooks/38769',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'introduction-to-mathematics',title:'An Introduction to Mathematics',author:'Alfred North Whitehead',year:1911,genre:'mathematics',field:'Foundations',description:'An introductory discussion of mathematical ideas and methods.',readingUrl:'https://www.gutenberg.org/ebooks/41568',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  'computer-science': [
+    {slug:'ibm-1401-programming-systems',title:'IBM 1401 Programming Systems',author:'Anonymous',year:1961,genre:'computer science',field:'Programming Systems',description:'A historical technical guide to programming systems for the IBM 1401.',readingUrl:'https://www.gutenberg.org/ebooks/27468',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'oak-ridge-algol-compiler',title:'The Oak Ridge ALGOL Compiler for the Control Data Corporation 1604',author:'L. L. Bumgarner',year:1965,genre:'computer science',field:'Programming Languages',description:'A historical programmer’s manual describing an ALGOL compiler and its operation.',readingUrl:'https://www.gutenberg.org/ebooks/50468',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'ibm-system-360-rpg-debugging',title:'IBM System 360 RPG Debugging Template and Keypunch Card',author:'Anonymous',year:1960,genre:'computer science',field:'Debugging & Systems',description:'A historical technical document about RPG programming and debugging on IBM System/360.',readingUrl:'https://www.gutenberg.org/ebooks/37504',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  programming: [
+    {slug:'ibm-1401-programming',title:'IBM 1401 Programming Systems',author:'Anonymous',year:1961,genre:'programming',field:'Programming Systems',description:'A historical programming text covering IBM 1401 systems and programming methods.',readingUrl:'https://www.gutenberg.org/ebooks/27468',source:'Project Gutenberg',license:'Public Domain'},
+    {slug:'oak-ridge-algol',title:'The Oak Ridge ALGOL Compiler',author:'L. L. Bumgarner',year:1965,genre:'programming',field:'ALGOL',description:'A historical ALGOL compiler guide with language and execution details.',readingUrl:'https://www.gutenberg.org/ebooks/50468',source:'Project Gutenberg',license:'Public Domain'}
+  ],
+  'ai-ml': []
+};
