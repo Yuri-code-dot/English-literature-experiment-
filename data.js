@@ -1,39 +1,210 @@
-window.LIBRARY_DATA = {"books":[{"slug":"frankenstein","title":"Frankenstein; or, The Modern Prometheus","author":"Mary Shelley","authorSlug":"mary-shelley","year":1818,"genre":"novel","period":"romanticism","subjects":["womens-writing"],"description":"A young scientist's experiment gives rise to a creature that forces him to confront creation, responsibility, and humanity, a novel that founded modern science fiction while interrogating the limits of Romantic ambition.","themes":["Creation and responsibility","Isolation","The limits of ambition","Nature vs. artifice"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/84","license":"Public Domain","cover":"https://commons.wikimedia.org/wiki/Special:FilePath/RothwellMaryShelley.jpg","featured":true},{"slug":"pride-and-prejudice","title":"Pride and Prejudice","author":"Jane Austen","authorSlug":"jane-austen","year":1813,"genre":"novel","period":"romanticism","subjects":["womens-writing"],"description":"Elizabeth Bennet's sharp wit and Mr. Darcy's wounded pride collide across a novel that turns the marriage plot into a study of self-knowledge, class, and first impressions.","themes":["Marriage and economics","Pride and self-perception","Social class","Irony as judgment"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/1342","license":"Public Domain","cover":"https://commons.wikimedia.org/wiki/Special:FilePath/PrideAndPrejudiceTitlePage.jpg","featured":true},{"slug":"great-expectations","title":"Great Expectations","author":"Charles Dickens","authorSlug":"charles-dickens","year":1861,"genre":"novel","period":"victorian","subjects":[],"description":"Pip's rise from a blacksmith's forge into unexplained wealth becomes Dickens's meditation on class, guilt, and the false promises of gentility in Victorian England.","themes":["Class mobility","Guilt and redemption","Appearance vs. reality"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/1400","license":"Public Domain","cover":"https://commons.wikimedia.org/wiki/Special:FilePath/Charles%20Dickens%20by%20Daniel%20Maclise.jpg","featured":true},{"slug":"mrs-dalloway","title":"Mrs Dalloway","author":"Virginia Woolf","authorSlug":"virginia-woolf","year":1925,"genre":"novel","period":"modernism","subjects":["womens-writing"],"description":"A single June day in London, following Clarissa Dalloway's preparations for a party and Septimus Warren Smith's unraveling, told through a stream of consciousness that moves freely between minds and moments.","themes":["Time and memory","War trauma","The interior life","The texture of a single day"],"source":"Wikisource","readingUrl":"https://en.wikisource.org","license":"Public Domain","cover":"https://commons.wikimedia.org/wiki/Special:FilePath/George%20Charles%20Beresford%20-%20Virginia%20Woolf%20in%201902.jpg","featured":true},{"slug":"hamlet","title":"Hamlet, Prince of Denmark","author":"William Shakespeare","authorSlug":"william-shakespeare","year":1603,"genre":"drama","period":"renaissance","subjects":[],"description":"A prince, a ghost, and a court rotten with concealment. Hamlet's delay has been read as philosophy, pathology, and performance for over four centuries.","themes":["Revenge and delay","Appearance vs. reality","Mortality","Madness, real or performed"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/1524","license":"Public Domain","cover":"https://commons.wikimedia.org/wiki/Special:FilePath/William%20Shakespeare%20Chandos%20Portrait.jpg"},{"slug":"dickinson-poems","title":"Poems","author":"Emily Dickinson","authorSlug":"emily-dickinson","year":1890,"genre":"poetry","period":"victorian","subjects":["american-literature","womens-writing"],"description":"Published posthumously, Dickinson's poems compress mortality, faith, and perception into short, unresolved lines that broke from the metrical conventions of her time.","themes":["Mortality","Faith and doubt","Solitude","Perception"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/12242","license":"Public Domain","cover":"https://commons.wikimedia.org/wiki/Special:FilePath/Emily%20Dickinson%20daguerreotype%20%28Restored%20and%20cropped%29.jpg"},{"slug":"the-father","title":"The Father","author":"August Strindberg","authorSlug":"august-strindberg","year":1887,"genre":"drama","period":"modernism","subjects":["modern-european-drama"],"description":"A naturalistic family drama in which a struggle over a child becomes a wider conflict about authority, gender, knowledge, and psychological control.","themes":["Gender and authority","Family conflict","Naturalism","Power and identity"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/8499","license":"Public Domain translation available through Project Gutenberg"},{"slug":"life-of-galileo","title":"Life of Galileo","author":"Bertolt Brecht","authorSlug":"bertolt-brecht","year":1943,"genre":"drama","period":"modernism","subjects":["modern-european-drama"],"description":"Brecht’s episodic play stages Galileo’s conflict with authority and asks what responsibilities scientific knowledge carries in a political world.","themes":["Science and power","Truth and authority","Alienation","Moral responsibility"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"waiting-for-godot","title":"Waiting for Godot","author":"Samuel Beckett","authorSlug":"samuel-beckett","year":1953,"genre":"drama","period":"postmodernism","subjects":["modern-european-drama"],"description":"Two figures wait beside a country road for an absent arrival in Beckett’s spare, repetitive drama of uncertainty, dependence, and time.","themes":["The absurd","Waiting and time","Language and silence","Human dependence"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"the-birthday-party","title":"The Birthday Party","author":"Harold Pinter","authorSlug":"harold-pinter","year":1958,"genre":"drama","period":"postmodernism","subjects":["modern-european-drama"],"description":"A seemingly ordinary boarding-house birthday becomes an unsettling ritual of interrogation, identity loss, and coercive power.","themes":["Menace","Power and language","Identity","Social conformity"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"the-old-man-and-the-sea","title":"The Old Man and the Sea","author":"Ernest Hemingway","authorSlug":"ernest-hemingway","year":1952,"genre":"novel","period":"modernism","subjects":["american-literature"],"description":"An aging Cuban fisherman’s struggle with a giant marlin becomes a concentrated meditation on endurance, dignity, labour, and defeat.","themes":["Endurance","Dignity","Human and natural worlds","Defeat and meaning"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"all-my-sons","title":"All My Sons","author":"Arthur Miller","authorSlug":"arthur-miller","year":1947,"genre":"drama","period":"modernism","subjects":["american-literature"],"description":"A prosperous family’s wartime business secret exposes the costs of profit, denial, responsibility, and inherited guilt.","themes":["Business and ethics","Family responsibility","War","Guilt"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"the-purloined-letter","title":"The Purloined Letter","author":"Edgar Allan Poe","authorSlug":"edgar-allan-poe","year":1844,"genre":"short-story","period":"romanticism","subjects":["american-literature"],"description":"C. Auguste Dupin solves a political theft not by searching harder but by understanding how concealment can operate in plain sight.","themes":["Detection","Reason and imagination","Visibility","Power and information"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/2148","license":"Public Domain"},{"slug":"up-from-slavery-chapter-one","title":"Up from Slavery, Chapter 1","author":"Booker T. Washington","authorSlug":"booker-t-washington","year":1901,"genre":"autobiography","period":"modernism","subjects":["american-literature"],"description":"The opening chapter of Washington’s autobiography reconstructs childhood, enslavement, emancipation, and the beginnings of a life shaped by education.","themes":["Memory","Emancipation","Education","Self-making"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/2376","license":"Public Domain"},{"slug":"i-know-why-the-caged-bird-sings-chapter-fifteen","title":"I Know Why the Caged Bird Sings, Chapter 15","author":"Maya Angelou","authorSlug":"maya-angelou","year":1969,"genre":"autobiography","period":"contemporary","subjects":["american-literature"],"description":"A bibliographic record for the prescribed chapter from Angelou’s memoir, which explores childhood, racial violence, memory, and the recovery of voice.","themes":["Childhood","Race and violence","Memory","Voice"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"dry-september","title":"Dry September","author":"William Faulkner","authorSlug":"william-faulkner","year":1931,"genre":"short-story","period":"modernism","subjects":["american-literature"],"description":"Faulkner’s story traces how rumour, racial hatred, and collective violence turn a hot Southern town into a scene of moral collapse.","themes":["Racism","Rumour","Collective violence","Moral responsibility"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"o-captain-my-captain","title":"O Captain! My Captain!","author":"Walt Whitman","authorSlug":"walt-whitman","year":1865,"genre":"poetry","period":"romanticism","subjects":["american-literature"],"description":"Whitman’s elegy for Abraham Lincoln turns a national victory into a paradoxical scene of public celebration and private grief.","themes":["Mourning","Nation","Leadership","Public memory"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/1322","license":"Public Domain"},{"slug":"this-was-a-poet","title":"This was a Poet","author":"Emily Dickinson","authorSlug":"emily-dickinson","year":1890,"genre":"poetry","period":"victorian","subjects":["american-literature","womens-writing"],"description":"A compact Dickinson poem that reflects on poetic vocation, recognition, and the difficulty of measuring imaginative work.","themes":["Poetic vocation","Recognition","Language","Mortality"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/12242","license":"Public Domain"},{"slug":"i-heard-a-fly-buzz","title":"I heard a Fly buzz — when I died —","author":"Emily Dickinson","authorSlug":"emily-dickinson","year":1896,"genre":"poetry","period":"victorian","subjects":["american-literature","womens-writing"],"description":"Dickinson’s death poem replaces grand spiritual revelation with the small, disruptive sound of a fly, unsettling expectations of transcendence.","themes":["Death","Perception","Faith and doubt","The ordinary"],"source":"Project Gutenberg","readingUrl":"https://www.gutenberg.org/ebooks/12242","license":"Public Domain"},{"slug":"mending-wall","title":"Mending Wall","author":"Robert Frost","authorSlug":"robert-frost","year":1914,"genre":"poetry","period":"modernism","subjects":["american-literature"],"description":"Two neighbours repair a boundary while disagreeing about whether walls preserve community or prevent it.","themes":["Boundaries","Community","Tradition","Ambiguity"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"the-negro-speaks-of-rivers","title":"The Negro Speaks of Rivers","author":"Langston Hughes","authorSlug":"langston-hughes","year":1921,"genre":"poetry","period":"modernism","subjects":["american-literature","postcolonial-literatures"],"description":"Hughes connects Black history to ancient rivers, transforming geographical movement into an expansive meditation on ancestral memory and endurance.","themes":["Ancestry","History","Race","Water and memory"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"the-language-of-african-literature","title":"The Language of African Literature","author":"Ngũgĩ wa Thiong'o","authorSlug":"ngugi-wa-thiongo","year":1986,"genre":"theory","period":"postcolonial","subjects":["postcolonial-literatures"],"description":"The prescribed section from Decolonising the Mind argues that language is inseparable from culture, memory, power, and the politics of colonial education.","themes":["Language and power","Decolonisation","Culture","Education"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"a-far-cry-from-africa","title":"A Far Cry from Africa","author":"Derek Walcott","authorSlug":"derek-walcott","year":1962,"genre":"poetry","period":"postcolonial","subjects":["postcolonial-literatures"],"description":"Walcott’s poem confronts colonial violence and the divided loyalties produced by a history that leaves the speaker caught between Africa and Europe.","themes":["Colonial violence","Divided identity","History","Belonging"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"the-white-fiends","title":"The White Fiends","author":"Langston Hughes","authorSlug":"langston-hughes","year":1924,"genre":"poetry","period":"modernism","subjects":["postcolonial-literatures"],"description":"A bibliographic record for Hughes’s anti-racist poem, prescribed for its direct confrontation with white supremacy and racial terror.","themes":["Racism","Resistance","Voice","Violence"],"source":"External rights-holder","license":"Copyright status varies by jurisdiction, catalogue metadata only"},{"slug":"small-towns-and-the-river","title":"Small Towns and the River","author":"Mamang Dai","authorSlug":"mamang-dai","year":2006,"genre":"poetry","period":"postcolonial","subjects":["postcolonial-literatures"],"description":"Dai’s poem remembers small-town life through rivers, landscape, community, and the persistence of place amid change.","themes":["Place","Memory","Ecology","Community"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"the-second-sex-introduction","title":"The Second Sex, Introduction","author":"Simone de Beauvoir","authorSlug":"simone-de-beauvoir","year":1949,"genre":"theory","period":"modernism","subjects":["womens-writing"],"description":"The prescribed introduction to Beauvoir’s feminist study asks how woman is produced as the Other within social, historical, and philosophical systems.","themes":["Otherness","Gender","Freedom","Social construction"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"a-room-of-ones-own","title":"A Room of One’s Own","author":"Virginia Woolf","authorSlug":"virginia-woolf","year":1929,"genre":"essay","period":"modernism","subjects":["womens-writing"],"description":"Woolf’s extended essay links women’s literary production to material independence, education, space, and the freedom to think.","themes":["Authorship","Material conditions","Gender","Education"],"source":"External rights-holder","license":"Copyright status varies by jurisdiction, catalogue metadata only"},{"slug":"a-literature-of-their-own","title":"A Literature of Their Own","author":"Elaine Showalter","authorSlug":"elaine-showalter","year":1977,"genre":"criticism","period":"postmodernism","subjects":["womens-writing"],"description":"Showalter’s feminist literary history proposes a tradition of women novelists and examines phases of women’s writing in relation to literary institutions.","themes":["Feminist literary history","Tradition","Canon formation","Authorship"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"in-other-worlds","title":"In Other Worlds","author":"Gayatri Chakravorty Spivak","authorSlug":"gayatri-chakravorty-spivak","year":1987,"genre":"criticism","period":"postmodernism","subjects":["womens-writing"],"description":"A bibliographic record for Spivak’s essays on feminist theory, deconstruction, representation, and the politics of reading across cultures.","themes":["Representation","Feminism","Deconstruction","Global power"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"under-western-eyes","title":"Under Western Eyes","author":"Chandra Talpade Mohanty","authorSlug":"chandra-talpade-mohanty","year":1984,"genre":"criticism","period":"postmodernism","subjects":["womens-writing"],"description":"Mohanty critiques universalising accounts of women in the global South and rethinks feminist solidarity through history, labour, and colonial power.","themes":["Transnational feminism","Representation","Colonialism","Solidarity"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"the-madwoman-in-the-attic","title":"The Madwoman in the Attic","author":"Sandra Gilbert & Susan Gubar","authorSlug":"sandra-gilbert-susan-gubar","year":1979,"genre":"criticism","period":"postmodernism","subjects":["womens-writing"],"description":"Gilbert and Gubar’s influential study reads nineteenth-century women’s writing through figures of authorship, confinement, anger, and revisionary imagination.","themes":["Female authorship","Confinement","Anger","Revision"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"sexual-textual-politics","title":"Sexual/Textual Politics","author":"Toril Moi","authorSlug":"toril-moi","year":1985,"genre":"criticism","period":"postmodernism","subjects":["womens-writing"],"description":"Moi maps key debates in feminist literary theory and distinguishes competing approaches to gender, language, authorship, and interpretation.","themes":["Feminist theory","Text and gender","Authorship","Interpretation"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"},{"slug":"recasting-women","title":"Recasting Women","author":"Kumkum Sangari & Sudesh Vaid","authorSlug":"kumkum-sangari-sudesh-vaid","year":1989,"genre":"criticism","period":"postcolonial","subjects":["womens-writing"],"description":"A bibliographic record for essays that historicise women, gender, reform, and social change in South Asian contexts.","themes":["Gender and history","South Asia","Reform","Social change"],"source":"External rights-holder","license":"Copyrighted work, catalogue metadata only"}]};
+/* Experimental network visual loader.
+   The catalogue source is pinned to the last data-only revision so this file can
+   carry the visual experiment without duplicating the 33-work dataset. */
+(function () {
+  const SOURCE = 'https://raw.githubusercontent.com/Yuri-code-dot/English-literature-experiment-/31d01f92551465a66b4261e502fa3ee83f6bd468/data.js';
 
-(function enhanceExperimentalSignals(){
-  const style=document.createElement('style');
-  style.textContent=`
-    .kinetic-signal{height:220px;margin-top:30px}
-    .signal-grid{grid-template-columns:repeat(12,1fr);color:rgba(233,49,29,.62)}
-    .signal-cell{opacity:.38;white-space:nowrap;overflow:visible;padding:0 5px}
-    .signal-cell.hot{color:var(--red);text-shadow:0 0 14px rgba(233,49,29,.24);opacity:1;transform:scale(1.08)}
-    .signal-cell.block{background:var(--red);color:var(--paper2);opacity:.96}
-    .signal-cell.dark{background:var(--dark);color:var(--red);opacity:.94}
-    .signal-cell.bar{border-left-color:rgba(233,49,29,.55);border-right-color:rgba(233,49,29,.18)}
-    footer{position:relative;min-height:320px;overflow:hidden;align-items:flex-end}
-    footer>span{position:relative;z-index:2}
-    .footer-signal{position:absolute;inset:0;z-index:1;display:grid;grid-template-columns:repeat(10,1fr);grid-template-rows:repeat(10,1fr);font:500 clamp(12px,2.1vw,28px)/1 var(--mono);text-transform:uppercase;letter-spacing:.05em;color:rgba(233,49,29,.36);pointer-events:none;overflow:hidden;mask-image:linear-gradient(180deg,transparent 0%,black 10%,black 88%,transparent 100%);-webkit-mask-image:linear-gradient(180deg,transparent 0%,black 10%,black 88%,transparent 100%)}
-    .footer-signal span{display:flex;align-items:center;justify-content:center;white-space:nowrap;opacity:.42;transition:opacity .5s,transform .5s,color .5s}
-    .footer-signal span.hot{color:var(--red);opacity:1;text-shadow:0 0 14px rgba(233,49,29,.22);transform:scale(1.12)}
-    .footer-signal span.block{background:var(--red);color:var(--dark);opacity:.86}
-    .footer-signal span.dark{background:var(--dark);color:var(--red);opacity:.8}
-    @media(max-width:720px){.kinetic-signal{height:175px;margin-top:24px}.signal-grid{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(12,1fr);font-size:9px}.signal-cell{white-space:normal;text-align:center;line-height:1.1;padding:2px}.footer-signal{grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(18,1fr);font-size:10px}.footer-signal span{opacity:.48}footer{min-height:380px}}
-    @media(prefers-reduced-motion:reduce){.footer-signal{display:none}}
-  `;
-  document.head.appendChild(style);
-  const footer=document.querySelector('footer');
-  const words=['TENSORAMAX LAB','TSC','TENSORA.AI','TENSORAMAX','OPUS','LIBRARY','ENGLISH','LITERATURE','HUMAN','VICTORIAN','ARCHIVE','RESEARCH','READ','CANON','ROMANTICISM','DIGITAL HUMANITIES'];
-  const signal=document.querySelector('#signalGrid');
-  if(signal){
-    const existing=[...signal.children];
-    existing.forEach((el,i)=>{el.textContent=words[i%words.length]});
-    let tick=0;
-    const animateWords=()=>{tick++;existing.forEach((el,i)=>{const wave=Math.sin(i*.47+tick*.035)+Math.sin(i*.11-tick*.018);el.classList.toggle('hot',wave>1.08);el.classList.toggle('block',((i+tick)%89===0));el.classList.toggle('dark',((i-tick)%131===0));el.classList.toggle('bar',(i%13===0)&&wave>.45);if(Math.random()<.012)el.textContent=words[Math.floor(Math.random()*words.length)]});requestAnimationFrame(animateWords)};requestAnimationFrame(animateWords);
+  try {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', SOURCE, false);
+    xhr.send(null);
+    if (xhr.status >= 200 && xhr.status < 300) {
+      new Function(xhr.responseText)();
+    } else {
+      throw new Error('Catalogue source returned ' + xhr.status);
+    }
+  } catch (error) {
+    console.error('English Literature Library data bootstrap failed:', error);
+    window.LIBRARY_DATA = window.LIBRARY_DATA || { books: [] };
   }
-  if(!footer)return;
-  const layer=document.createElement('div');layer.className='footer-signal';layer.setAttribute('aria-hidden','true');
-  const cols=window.innerWidth<=720?4:10, rows=window.innerWidth<=720?18:10;const cells=[];
-  for(let i=0;i<cols*rows;i++){const el=document.createElement('span');el.textContent=words[Math.floor(Math.random()*words.length)];layer.appendChild(el);cells.push(el)}
-  footer.prepend(layer);
-  let tick=0;const animate=()=>{tick++;cells.forEach((el,i)=>{const wave=Math.sin(i*.31+tick*.025)+Math.sin(i*.071-tick*.013);el.classList.toggle('hot',wave>1.15);el.classList.toggle('block',((i+tick)%107===0));el.classList.toggle('dark',((i-tick)%149===0));if(Math.random()<.009)el.textContent=words[Math.floor(Math.random()*words.length)]});layer.style.transform=`translate3d(${Math.sin(tick*.005)*9}px,${Math.cos(tick*.004)*3}px,0)`;requestAnimationFrame(animate)};requestAnimationFrame(animate);
+
+  if (!document.querySelector('style[data-tensor-network]')) {
+    const style = document.createElement('style');
+    style.setAttribute('data-tensor-network', '');
+    style.textContent = `
+      .kinetic-signal{height:260px;margin:42px 0 0;position:relative;overflow:hidden;mask-image:linear-gradient(90deg,transparent,black 4%,black 96%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,black 4%,black 96%,transparent)}
+      .signal-grid{display:none!important}
+      .tensor-network{position:absolute;inset:0;width:100%;height:100%;display:block;overflow:visible}
+      .tensor-network .network-bg{fill:rgba(233,49,29,.018)}
+      .tensor-network .network-grid{stroke:rgba(17,17,15,.10);stroke-width:1}
+      .tensor-network .edge{fill:none;stroke:rgba(233,49,29,.36);stroke-width:1.25;vector-effect:non-scaling-stroke}
+      .tensor-network .edge.strong{stroke:rgba(233,49,29,.72);stroke-width:1.8}
+      .tensor-network .edge.dim{stroke:rgba(17,17,15,.20);stroke-dasharray:3 8}
+      .tensor-network .packet{fill:var(--red);filter:drop-shadow(0 0 5px rgba(233,49,29,.42))}
+      .tensor-network .node rect{fill:rgba(250,245,232,.92);stroke:rgba(233,49,29,.48);stroke-width:1.2;vector-effect:non-scaling-stroke}
+      .tensor-network .node.primary rect{fill:var(--dark);stroke:var(--red);stroke-width:1.6}
+      .tensor-network .node.active rect{fill:var(--red);stroke:var(--red)}
+      .tensor-network .node text{font:600 11px var(--mono);letter-spacing:.08em;fill:var(--ink);text-anchor:middle;dominant-baseline:middle}
+      .tensor-network .node.primary text{fill:var(--paper2)}
+      .tensor-network .node.active text{fill:#fff}
+      .tensor-network .node .port{fill:var(--red)}
+      .tensor-network .node.primary .port{fill:var(--paper2)}
+      .tensor-network .node .pulse-ring{fill:none;stroke:var(--red);stroke-width:1;opacity:0;transform-box:fill-box;transform-origin:center;animation:networkPulse 4.8s ease-out infinite}
+      .tensor-network .node:nth-of-type(3) .pulse-ring{animation-delay:1.2s}
+      .tensor-network .node:nth-of-type(5) .pulse-ring{animation-delay:2.4s}
+      .tensor-network .node:nth-of-type(8) .pulse-ring{animation-delay:3.1s}
+      .network-caption{position:absolute;left:0;top:-22px;font:9px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:rgba(233,49,29,.7)}
+      .footer-network{position:absolute;inset:0;z-index:1;overflow:hidden;pointer-events:none}
+      .footer-network svg{width:100%;height:100%;display:block}
+      footer>span{position:relative;z-index:3}
+      footer{position:relative;min-height:390px;overflow:hidden;align-items:flex-end}
+      footer:after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(180deg,rgba(238,233,220,.06),transparent 18%,transparent 82%,rgba(238,233,220,.18))}
+      @keyframes networkPulse{0%{opacity:0;transform:scale(.65)}12%{opacity:.85}55%{opacity:0;transform:scale(1.8)}100%{opacity:0;transform:scale(1.8)}}
+      @media(max-width:720px){
+        .kinetic-signal{height:205px;margin-top:28px}
+        .tensor-network .node text{font-size:8px;letter-spacing:.045em}
+        .tensor-network .edge{stroke-width:1}
+        .network-caption{top:-17px;font-size:8px}
+        footer{min-height:430px}
+      }
+      @media(prefers-reduced-motion:reduce){
+        .tensor-network .packet,.tensor-network .pulse-ring{animation:none!important}
+      }
+    `;
+    document.head.appendChild(style);
+  }
+
+  function pathFor(a, b, bend) {
+    const mx = (a.x + b.x) / 2;
+    return `M ${a.x} ${a.y} C ${mx} ${a.y}, ${mx} ${b.y}, ${b.x} ${b.y}`;
+  }
+
+  function makeNetwork(host, footerMode) {
+    if (!host) return;
+    host.querySelectorAll('.tensor-network,.network-caption').forEach(n => n.remove());
+
+    const svg = document.createElementNS('http://www.w3.org/2000/svg','svg');
+    svg.classList.add('tensor-network');
+    svg.setAttribute('viewBox', footerMode ? '0 0 1200 430' : '0 0 1200 300');
+    svg.setAttribute('preserveAspectRatio','none');
+    svg.setAttribute('aria-hidden','true');
+
+    const width = 1200;
+    const height = footerMode ? 430 : 300;
+    const nodes = footerMode ? [
+      {x:150,y:95,w:150,h:38,label:'TENSORAMAX LAB',primary:true},
+      {x:430,y:55,w:100,h:34,label:'TSC',primary:true},
+      {x:650,y:105,w:135,h:36,label:'TENSORA.AI',primary:true,active:true},
+      {x:930,y:62,w:120,h:34,label:'TENSORAMAX',primary:true},
+      {x:305,y:205,w:105,h:32,label:'OPUS',primary:true},
+      {x:525,y:180,w:105,h:30,label:'RESEARCH'},
+      {x:770,y:215,w:105,h:30,label:'ARCHIVE'},
+      {x:1010,y:190,w:105,h:30,label:'LIBRARY'},
+      {x:170,y:315,w:100,h:30,label:'ENGLISH'},
+      {x:390,y:340,w:125,h:30,label:'LITERATURE'},
+      {x:650,y:325,w:110,h:30,label:'HUMAN'},
+      {x:850,y:345,w:125,h:30,label:'VICTORIAN'},
+      {x:1080,y:310,w:125,h:30,label:'ROMANTICISM'},
+      {x:920,y:275,w:165,h:30,label:'DIGITAL HUMANITIES'}
+    ] : [
+      {x:105,y:92,w:150,h:38,label:'TENSORAMAX LAB',primary:true},
+      {x:350,y:52,w:86,h:32,label:'TSC',primary:true},
+      {x:555,y:102,w:125,h:34,label:'TENSORA.AI',primary:true,active:true},
+      {x:790,y:54,w:112,h:32,label:'TENSORAMAX',primary:true},
+      {x:960,y:120,w:82,h:30,label:'OPUS',primary:true},
+      {x:280,y:180,w:98,h:30,label:'ENGLISH'},
+      {x:465,y:205,w:105,h:30,label:'LITERATURE'},
+      {x:680,y:175,w:90,h:30,label:'LIBRARY'},
+      {x:865,y:210,w:98,h:30,label:'RESEARCH'},
+      {x:1080,y:172,w:95,h:30,label:'ARCHIVE'},
+      {x:160,y:258,w:105,h:28,label:'VICTORIAN'},
+      {x:375,y:262,w:112,h:28,label:'ROMANTICISM'},
+      {x:625,y:250,w:135,h:28,label:'DIGITAL HUMANITIES'},
+      {x:885,y:270,w:80,h:28,label:'HUMAN'}
+    ];
+
+    const edges = [
+      [0,1,0],[1,2,0],[2,3,0],[2,4,8],[0,5,-8],[5,6,5],[6,7,-7],
+      [7,8,8],[8,9,-8],[5,10,5],[6,11,-6],[7,12,7],[8,13,-5],
+      [1,5,4],[2,6,-3],[3,8,4],[4,9,-6],[10,11,5],[11,12,-4],
+      [12,13,6]
+    ];
+
+    const defs = document.createElementNS('http://www.w3.org/2000/svg','defs');
+    const filter = document.createElementNS('http://www.w3.org/2000/svg','filter');
+    filter.setAttribute('id','networkGlow');
+    filter.innerHTML = '<feGaussianBlur stdDeviation="2.5" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>';
+    defs.appendChild(filter);
+    svg.appendChild(defs);
+
+    const bg = document.createElementNS('http://www.w3.org/2000/svg','rect');
+    bg.setAttribute('class','network-bg'); bg.setAttribute('x','0'); bg.setAttribute('y','0'); bg.setAttribute('width',width); bg.setAttribute('height',height); svg.appendChild(bg);
+
+    for(let x=0;x<=width;x+=60){
+      const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('class','network-grid');line.setAttribute('x1',x);line.setAttribute('y1',0);line.setAttribute('x2',x);line.setAttribute('y2',height);svg.appendChild(line);
+    }
+    for(let y=0;y<=height;y+=50){
+      const line=document.createElementNS('http://www.w3.org/2000/svg','line');
+      line.setAttribute('class','network-grid');line.setAttribute('x1',0);line.setAttribute('y1',y);line.setAttribute('x2',width);line.setAttribute('y2',y);svg.appendChild(line);
+    }
+
+    edges.forEach((edge,index)=>{
+      const a=nodes[edge[0]], b=nodes[edge[1]];
+      const from={x:a.x+a.w/2,y:a.y+a.h/2}, to={x:b.x-b.w/2,y:b.y+b.h/2};
+      const d=pathFor(from,to,edge[2]);
+      const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+      path.setAttribute('class','edge'+(index<8?' strong':'')+(index>15?' dim':''));
+      path.setAttribute('d',d);
+      svg.appendChild(path);
+      if(index % 2 === 0){
+        const packet=document.createElementNS('http://www.w3.org/2000/svg','circle');
+        packet.setAttribute('class','packet');
+        packet.setAttribute('r',index<6?'3':'2');
+        const motion=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
+        motion.setAttribute('dur',`${5.5 + (index%5)*1.3}s`);
+        motion.setAttribute('begin',`${(index%7)*.55}s`);
+        motion.setAttribute('repeatCount','indefinite');
+        motion.setAttribute('path',d);
+        packet.appendChild(motion);
+        svg.appendChild(packet);
+      }
+    });
+
+    nodes.forEach(node=>{
+      const g=document.createElementNS('http://www.w3.org/2000/svg','g');
+      g.classList.add('node');
+      if(node.primary)g.classList.add('primary');
+      if(node.active)g.classList.add('active');
+      g.setAttribute('transform',`translate(${node.x-node.w/2},${node.y-node.h/2})`);
+      const rect=document.createElementNS('http://www.w3.org/2000/svg','rect');
+      rect.setAttribute('width',node.w);rect.setAttribute('height',node.h);rect.setAttribute('rx','2');
+      g.appendChild(rect);
+      const text=document.createElementNS('http://www.w3.org/2000/svg','text');
+      text.setAttribute('x',node.w/2);text.setAttribute('y',node.h/2+1);text.textContent=node.label;
+      g.appendChild(text);
+      const port=document.createElementNS('http://www.w3.org/2000/svg','circle');
+      port.classList.add('port');port.setAttribute('cx',node.w);port.setAttribute('cy',node.h/2);port.setAttribute('r','2');
+      g.appendChild(port);
+      if(node.primary){
+        const ring=document.createElementNS('http://www.w3.org/2000/svg','circle');
+        ring.classList.add('pulse-ring');ring.setAttribute('cx',node.w/2);ring.setAttribute('cy',node.h/2);ring.setAttribute('r',Math.max(node.w,node.h)*.35);
+        g.appendChild(ring);
+      }
+      svg.appendChild(g);
+    });
+
+    host.appendChild(svg);
+  }
+
+  function init() {
+    const hero = document.getElementById('signalGrid')?.parentElement;
+    if (hero) {
+      hero.innerHTML = '<span class="network-caption">TENSORAMAX LAB / KNOWLEDGE NETWORK</span>';
+      makeNetwork(hero,false);
+    }
+    const footer = document.querySelector('footer');
+    if (footer && !footer.querySelector('.footer-network')) {
+      const layer=document.createElement('div');
+      layer.className='footer-network';
+      footer.prepend(layer);
+      makeNetwork(layer,true);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init, {once:true});
+  } else {
+    init();
+  }
 })();
