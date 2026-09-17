@@ -50,13 +50,13 @@
     <section class="profile-head">
       <div class="avatar-wrap"><img id="avatar" alt="Profile avatar"><span class="online"></span></div>
       <div class="identity">
-        <div class="name-row"><h2 id="displayName">Loading…</h2><span id="roleBadge" class="role-badge">READER</span></div>
-        <div class="handle" id="handle">@member</div>
-        <div class="roles" id="roles">Reader · Learner · Library Member</div>
-        <p id="bio">A reader exploring the world of literature, one page at a time.</p>
-        <div class="details"><span>⌖ <b>Library Member</b></span><span>◷ <b id="joined">Joined recently</b></span><span>◈ <b id="emailLabel">Authenticated member</b></span></div>
+        <div class="name-row"><h2 id="displayName">AUTHENTICATING…</h2><span id="roleBadge" class="role-badge">READER</span></div>
+        <div class="handle" id="handle">Connecting to library identity…</div>
+        <div class="roles" id="roles">Loading member profile</div>
+        <p id="bio">Connecting your library identity to the catalogue.</p>
+        <div class="details"><span>⌖ <b>Library Member</b></span><span>◷ <b id="joined">Checking account…</b></span><span>◈ <b id="emailLabel">Authenticating…</b></span></div>
       </div>
-      <button class="edit-profile" type="button" id="editProfile">✎ EDIT PROFILE</button>
+      <button class="edit-profile" type="button" id="editProfile" disabled>✎ EDIT PROFILE</button>
     </section>
 
     <section class="stats" aria-label="Library statistics">
@@ -83,7 +83,7 @@
     </section>
   </main>
 </div>
-<div id="error" class="error" hidden></div>
-<script type="module" src="./profile.js?v=1"></script>
+<div id="error" class="error" hidden role="alert" aria-live="assertive"><span data-error-message></span><button data-retry type="button">RETRY</button></div>
+<script type="module" src="./profile.js?v=2"></script>
 </body>
 </html>
