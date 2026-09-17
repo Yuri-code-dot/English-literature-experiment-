@@ -3,7 +3,6 @@ import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from './auth/config.js'
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
 const channelName = 'english-literature-library-presence'
-const presenceKey = `visitor-${crypto.randomUUID()}`
 
 function injectUI() {
   const style = document.createElement('style')
@@ -60,6 +59,9 @@ function setCount(count) {
 
 async function startPresence() {
   injectUI()
+
+  const { data: { session } } = await supabase.auth.getSession()
+  const presenceKey = session?.user?.id || `visitor-${crypto.randomUUID()}`
 
   const channel = supabase.channel(channelName, {
     config: { presence: { key: presenceKey } }
