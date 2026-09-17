@@ -2,7 +2,7 @@
  * English Literature Library / Experimental Edition
  *
  * Keep the current visual experiment pinned to its known-good revision,
- * then layer the product-status, profile entry, and community navigation on top.
+ * then layer the product-status, profile entry, community navigation, and live presence on top.
  */
 (function () {
   const SOURCE = 'https://raw.githubusercontent.com/Yuri-code-dot/English-literature-experiment-/61c081167060ef2af548641eaa1a7544bbac5d11/data.js';
@@ -34,7 +34,7 @@
     .library-drawer{position:fixed;left:0;top:0;bottom:0;width:min(370px,88vw);z-index:100;background:var(--paper2);border-right:1px solid var(--ink);box-shadow:25px 0 80px rgba(17,17,15,.18);transform:translateX(-105%);transition:transform .38s cubic-bezier(.2,.8,.2,1);padding:88px 28px 30px;display:flex;flex-direction:column}
     .library-drawer.open{transform:translateX(0)}
     .library-drawer .drawer-kicker{font:9px var(--mono);letter-spacing:.12em;color:var(--red);text-transform:uppercase}
-    .library-drawer h2{font:italic 500 clamp(2.3rem,6vw,4rem) var(--serif);line-height:.9;letter-spacing:-.06em;margin:14px 0 34px}
+    .library-drawer h2{font:italic 500 clamp(2.3rem,6vw,4rem) var(--serif);line-height:.9;letter-spacing:-.06em;margin:14px 0 24px}
     .library-drawer nav{display:grid;gap:0;border-top:1px solid var(--line)}
     .library-drawer nav a{padding:16px 0;border-bottom:1px solid var(--line);font:10px var(--mono);letter-spacing:.09em;text-transform:uppercase;display:flex;justify-content:space-between;transition:.2s}
     .library-drawer nav a:hover{color:var(--red);padding-left:7px}
@@ -128,6 +128,7 @@
   function boot() {
     addMenu();
     addStatusAndAuth();
+    import('./presence.js').catch(error => console.warn('Library presence unavailable:', error.message));
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', boot, { once: true });
