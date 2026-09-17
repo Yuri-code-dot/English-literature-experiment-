@@ -12,7 +12,7 @@
 <div class="grain"></div>
 <header class="topbar">
   <a class="brand" href="../index.html">ENGLISH LITERATURE LIBRARY <span>/ DISCUSSION ROOM</span></a>
-  <a class="back" href="../index.html">LIBRARY ↗</a>
+  <div class="topbar-right"><span id="communityLive" class="community-live"><i></i> LIVE <b>1</b></span><a class="back" href="../index.html">LIBRARY ↗</a></div>
 </header>
 <main>
   <section class="intro">
@@ -26,6 +26,7 @@
       <div><span class="kicker">01 / DISCUSSIONS</span><h2>Open room</h2></div>
       <button id="newDiscussion" class="primary">+ NEW DISCUSSION</button>
     </div>
+    <div class="live-strip"><span class="live-dot"></span><div><b id="roomLiveCount">1 person</b><small>currently in the Library</small></div><span class="live-note">REAL-TIME PRESENCE</span></div>
     <div class="filters">
       <input id="search" type="search" placeholder="Search discussions..." aria-label="Search discussions">
       <button class="filter active" data-filter="all">ALL</button>
@@ -54,6 +55,7 @@
     </form>
   </div>
 </div>
+<script type="module" src="../presence.js"></script>
 <script type="module" src="./community.js"></script>
 </body>
 </html>
