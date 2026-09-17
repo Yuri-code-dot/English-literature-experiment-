@@ -51,9 +51,9 @@
     if (!header.querySelector('.library-auth-link')) {
       const link = document.createElement('a');
       link.className = 'library-auth-link';
-      link.href = 'auth/login.html';
-      link.textContent = 'SIGN IN ↗';
-      link.setAttribute('aria-label', 'Sign in to the English Literature Library');
+      link.href = 'profile/profile.html';
+      link.textContent = 'PROFILE ↗';
+      link.setAttribute('aria-label', 'Open your English Literature Library profile');
       const viewDesktop = header.querySelector('#viewToggleDesktop');
       const viewMobile = header.querySelector('#viewToggle');
       if (viewDesktop) header.insertBefore(link, viewDesktop.parentElement);
