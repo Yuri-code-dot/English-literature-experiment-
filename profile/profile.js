@@ -4,6 +4,8 @@ import { SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY } from '../auth/config.js'
 const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
 const $ = (id) => document.getElementById(id)
 
+const PROFILE_TIMEOUT_MS = 10000
+
 function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]))
 }
@@ -31,6 +33,15 @@ function roleLine(role) {
 
 function catalogueCount() {
   return Array.isArray(window.LIBRARY_DATA?.books) ? window.LIBRARY_DATA.books.length : 0
+}
+
+function setLoading(loading) {
+  document.body.classList.toggle('profile-loading', loading)
+  document.body.setAttribute('aria-busy', String(loading))
+  ;['logout', 'editProfile'].forEach((id) => {
+    const element = $(id)
+    if (element) element.disabled = loading
+  })
 }
 
 function setProfile(profile, user) {
@@ -61,50 +72,102 @@ function setProfile(profile, user) {
   $('libraryHeadline').textContent = count ? `${count} works in the catalogue.` : 'The complete catalogue.'
 }
 
-async function init() {
-  const { data: { session }, error: sessionError } = await supabase.auth.getSession()
+function showError(message, canRetry = true) {
+  const box = $('error')
+  if (!box) return
+
+  box.hidden = false
+  box.classList.add('visible')
+  box.querySelector('[data-error-message]').textContent = message
+  const retry = box.querySelector('[data-retry]')
+  if (retry) retry.hidden = !canRetry
+
+  clearTimeout(showError.timer)
+  if (!canRetry) {
+    showError.timer = setTimeout(() => {
+      box.hidden = true
+      box.classList.remove('visible')
+    }, 6000)
+  }
+}
+
+function clearError() {
+  const box = $('error')
+  if (!box) return
+  box.hidden = true
+  box.classList.remove('visible')
+  clearTimeout(showError.timer)
+}
+
+function withTimeout(promise, label) {
+  let timer
+  const timeout = new Promise((_, reject) => {
+    timer = window.setTimeout(() => reject(new Error(`${label} timed out. Check your connection and try again.`)), PROFILE_TIMEOUT_MS)
+  })
+  return Promise.race([promise, timeout]).finally(() => window.clearTimeout(timer))
+}
+
+async function loadProfile() {
+  const { data: { session }, error: sessionError } = await withTimeout(
+    supabase.auth.getSession(),
+    'Authentication'
+  )
   if (sessionError) throw sessionError
+
   if (!session?.user) {
     window.location.replace(new URL('../auth/login.html', window.location.href).href)
-    return
+    return false
   }
 
-  const { data: profile, error } = await supabase
-    .from('profiles')
-    .select('id,public_uid,username,display_name,avatar_url,bio,role,created_at')
-    .eq('id', session.user.id)
-    .maybeSingle()
+  const { data: profile, error } = await withTimeout(
+    supabase
+      .from('profiles')
+      .select('id,public_uid,username,display_name,avatar_url,bio,role,created_at')
+      .eq('id', session.user.id)
+      .maybeSingle(),
+    'Profile'
+  )
 
   if (error) throw error
   setProfile(profile, session.user)
+  return true
+}
 
-  $('logout').addEventListener('click', async () => {
-    $('logout').disabled = true
-    try {
-      await supabase.auth.signOut()
-      window.location.replace(new URL('../auth/login.html', window.location.href).href)
-    } catch (error) {
-      $('logout').disabled = false
-      showError(error?.message || 'Could not sign out.')
-    }
-  })
+async function init() {
+  setLoading(true)
+  clearError()
 
-  $('editProfile').addEventListener('click', () => showError('Profile editing is the next profile-system layer.'))
-  document.querySelectorAll('.tabs button').forEach((button) => {
-    button.addEventListener('click', () => {
-      document.querySelectorAll('.tabs button').forEach((item) => item.classList.remove('active'))
-      button.classList.add('active')
+  try {
+    const loaded = await loadProfile()
+    if (!loaded) return
+
+    $('logout').addEventListener('click', async () => {
+      $('logout').disabled = true
+      try {
+        await withTimeout(supabase.auth.signOut(), 'Sign out')
+        window.location.replace(new URL('../auth/login.html', window.location.href).href)
+      } catch (error) {
+        $('logout').disabled = false
+        showError(error?.message || 'Could not sign out.')
+      }
     })
-  })
+
+    $('editProfile').addEventListener('click', () => showError('Profile editing is the next profile-system layer.', false))
+    document.querySelectorAll('.tabs button').forEach((button) => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.tabs button').forEach((item) => item.classList.remove('active'))
+        button.classList.add('active')
+      })
+    })
+
+    setLoading(false)
+  } catch (error) {
+    setLoading(false)
+    showError(error?.message || 'Could not load your profile.')
+  }
 }
 
-function showError(message) {
-  const box = $('error')
-  box.textContent = message
-  box.hidden = false
-  clearTimeout(showError.timer)
-  showError.timer = setTimeout(() => { box.hidden = true }, 4200)
-}
-
+$('error')?.querySelector('[data-retry]')?.addEventListener('click', () => init())
 window.addEventListener('error', (event) => showError(event.error?.message || event.message || 'Profile error.'))
-init().catch((error) => showError(error?.message || 'Could not load your profile.'))
+window.addEventListener('unhandledrejection', (event) => showError(event.reason?.message || 'Profile request failed.'))
+init()
