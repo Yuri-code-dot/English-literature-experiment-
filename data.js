@@ -30,7 +30,8 @@
       .tensor-network .edge{fill:none;stroke:rgba(233,49,29,.36);stroke-width:1.25;vector-effect:non-scaling-stroke}
       .tensor-network .edge.strong{stroke:rgba(233,49,29,.72);stroke-width:1.8}
       .tensor-network .edge.dim{stroke:rgba(17,17,15,.20);stroke-dasharray:3 8}
-      .tensor-network .packet{fill:var(--red);filter:drop-shadow(0 0 5px rgba(233,49,29,.42))}
+      .tensor-network .packet{fill:var(--red);filter:drop-shadow(0 0 7px rgba(233,49,29,.52));opacity:.95}
+      .tensor-network .packet.fast{r:3.2;filter:drop-shadow(0 0 11px rgba(233,49,29,.72))}
       .tensor-network .node rect{fill:rgba(250,245,232,.92);stroke:rgba(233,49,29,.48);stroke-width:1.2;vector-effect:non-scaling-stroke}
       .tensor-network .node.primary rect{fill:var(--dark);stroke:var(--red);stroke-width:1.6}
       .tensor-network .node.active rect{fill:var(--red);stroke:var(--red)}
@@ -149,11 +150,11 @@
       svg.appendChild(path);
       if(index % 2 === 0){
         const packet=document.createElementNS('http://www.w3.org/2000/svg','circle');
-        packet.setAttribute('class','packet');
+        packet.setAttribute('class','packet'+(index%4===0?' fast':''));
         packet.setAttribute('r',index<6?'3':'2');
         const motion=document.createElementNS('http://www.w3.org/2000/svg','animateMotion');
-        motion.setAttribute('dur',`${5.5 + (index%5)*1.3}s`);
-        motion.setAttribute('begin',`${(index%7)*.55}s`);
+        motion.setAttribute('dur',`${1.25 + (index%5)*.34}s`);
+        motion.setAttribute('begin',`${(index%7)*.17}s`);
         motion.setAttribute('repeatCount','indefinite');
         motion.setAttribute('path',d);
         packet.appendChild(motion);
