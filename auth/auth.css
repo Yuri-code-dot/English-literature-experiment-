@@ -1,141 +1,214 @@
 * { box-sizing: border-box; }
 
 :root {
-  color-scheme: dark;
+  color-scheme: light;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #08060c;
-  color: #f7f2ff;
+  background: #eee9dc;
+  color: #11110f;
+  --paper: #eee9dc;
+  --paper2: #faf5e8;
+  --ink: #11110f;
+  --muted: #6c685f;
+  --red: #e9311d;
+  --line: rgba(17,17,15,.16);
+  --dark: #10100e;
+  --serif: "Playfair Display", Georgia, serif;
+  --mono: "DM Mono", monospace;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap');
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  overflow-x: hidden;
   background:
-    radial-gradient(circle at 20% 10%, rgba(132, 74, 255, .18), transparent 32%),
-    radial-gradient(circle at 90% 80%, rgba(74, 38, 150, .12), transparent 30%),
-    #08060c;
+    linear-gradient(rgba(17,17,15,.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(17,17,15,.055) 1px, transparent 1px),
+    radial-gradient(circle at 82% 12%, rgba(233,49,29,.08), transparent 28%),
+    var(--paper);
+  background-size: 44px 44px, 44px 44px, auto, auto;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  border-left: 1px solid rgba(17,17,15,.12);
+  opacity: .55;
 }
 
 .auth-shell {
-  width: min(100% - 28px, 460px);
+  width: min(100% - 28px, 520px);
   min-height: 100vh;
   margin: auto;
   display: grid;
   place-items: center;
-  padding: 32px 0;
+  padding: 34px 0;
 }
 
 .auth-card {
   width: 100%;
-  padding: 30px;
-  border: 1px solid rgba(255,255,255,.09);
-  border-radius: 24px;
-  background: rgba(17, 12, 25, .88);
-  box-shadow: 0 30px 100px rgba(0,0,0,.45);
-  backdrop-filter: blur(18px);
+  padding: 34px;
+  border: 1px solid rgba(17,17,15,.2);
+  border-radius: 4px;
+  background: rgba(250,245,232,.94);
+  box-shadow: 0 35px 100px rgba(17,17,15,.16);
+  position: relative;
+  overflow: hidden;
+}
+
+.auth-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--red);
 }
 
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 34px;
-  color: #fff;
-  font-weight: 700;
-  letter-spacing: -.02em;
+  gap: 12px;
+  margin-bottom: 30px;
+  color: var(--ink);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  font-size: 18px;
 }
 
 .brand-mark {
-  width: 34px;
-  height: 34px;
+  width: 38px;
+  height: 38px;
   display: grid;
   place-items: center;
-  border: 1px solid #9b63ff;
-  border-radius: 10px;
-  color: #c9a8ff;
+  border: 1px solid var(--red);
+  border-radius: 3px;
+  color: var(--red);
+  font: 12px var(--mono);
+  letter-spacing: .02em;
+}
+
+.version-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 34px;
+  padding: 8px 10px;
+  border: 1px solid var(--red);
+  background: var(--red);
+  color: #fff;
+  font: 9px var(--mono);
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.version-badge .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(255,255,255,.16);
 }
 
 .kicker {
   margin: 0 0 10px;
-  color: #a878ff;
-  font-size: 11px;
-  font-weight: 700;
+  color: var(--red);
+  font: 11px var(--mono);
+  font-weight: 500;
   letter-spacing: .14em;
+  text-transform: uppercase;
 }
 
 h1 {
   margin: 0;
-  font-size: clamp(34px, 9vw, 52px);
-  line-height: .98;
-  letter-spacing: -.055em;
+  max-width: 480px;
+  font-size: clamp(38px, 10vw, 64px);
+  line-height: .88;
+  letter-spacing: -.075em;
 }
 
 .subtitle {
-  margin: 16px 0 26px;
-  color: #9b94a5;
-  line-height: 1.65;
-  font-size: 14px;
+  margin: 20px 0 28px;
+  color: #5f5b53;
+  line-height: 1.7;
+  font: 15px/1.7 var(--serif);
+  max-width: 460px;
 }
 
-.providers { display: grid; gap: 11px; }
+.providers { display: grid; gap: 10px; }
 
 .provider {
   width: 100%;
-  min-height: 52px;
+  min-height: 58px;
   display: grid;
-  grid-template-columns: 32px 1fr 18px;
+  grid-template-columns: 34px 1fr 18px;
   align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  border: 1px solid #30283b;
-  border-radius: 14px;
-  background: #0e0a13;
-  color: #f5f0fa;
-  font: inherit;
+  gap: 13px;
+  padding: 11px 14px;
+  border: 1px solid rgba(17,17,15,.2);
+  border-radius: 2px;
+  background: var(--paper2);
+  color: var(--ink);
+  font: 14px var(--mono);
   text-align: left;
   cursor: pointer;
-  transition: transform .18s ease, border-color .18s ease, background .18s ease;
+  transition: transform .18s ease, border-color .18s ease, background .18s ease, color .18s ease;
 }
 
 .provider:hover {
-  transform: translateY(-1px);
-  border-color: #8e5bd2;
-  background: #171020;
+  transform: translateY(-2px);
+  border-color: var(--red);
+  background: var(--ink);
+  color: var(--paper2);
+}
+
+.provider:disabled {
+  opacity: .58;
+  cursor: wait;
+  transform: none;
 }
 
 .icon {
-  width: 30px;
-  height: 30px;
+  width: 32px;
+  height: 32px;
   display: grid;
   place-items: center;
-  border-radius: 9px;
-  font-size: 12px;
+  border-radius: 2px;
+  font-size: 11px;
   font-weight: 800;
 }
 
-.github { background: #f4f1f7; color: #111; }
-.google { background: #fff; color: #4285f4; font-size: 16px; }
-.arrow { color: #766b82; }
+.github { background: var(--ink); color: var(--paper2); }
+.google { background: #fff; color: #4285f4; border: 1px solid rgba(17,17,15,.1); font-size: 17px; }
+.arrow { color: #817b70; font-size: 18px; }
+.provider:hover .arrow { color: var(--red); }
 
 #status {
   min-height: 20px;
-  margin: 16px 0 0;
-  color: #bca7d7;
-  font-size: 12px;
-  line-height: 1.5;
+  margin: 17px 0 0;
+  color: var(--red);
+  font: 11px/1.5 var(--mono);
+  text-transform: uppercase;
+  letter-spacing: .04em;
 }
 
 .note {
-  margin: 24px 0 0;
+  margin: 26px 0 0;
   padding-top: 18px;
-  border-top: 1px solid rgba(255,255,255,.07);
-  color: #696271;
-  font-size: 10px;
-  line-height: 1.6;
+  border-top: 1px solid var(--line);
+  color: #777168;
+  font: 10px/1.7 var(--mono);
   text-align: center;
 }
 
 @media (max-width: 420px) {
-  .auth-card { padding: 24px; border-radius: 20px; }
+  .auth-shell { width: min(100% - 20px, 520px); padding: 20px 0; }
+  .auth-card { padding: 27px 22px; }
+  .brand { font-size: 16px; }
+  .version-badge { margin-bottom: 28px; }
 }
