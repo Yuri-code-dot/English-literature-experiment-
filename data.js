@@ -125,9 +125,18 @@
     }
   }
 
+  function wireOriginalLibraryLink() {
+    const link = document.querySelector('.original');
+    if (!link) return;
+    link.href = 'https://english-library-ibs9res1z-yuri-code-dots-projects.vercel.app/';
+    link.target = '_blank';
+    link.rel = 'noopener';
+  }
+
   function boot() {
     addMenu();
     addStatusAndAuth();
+    wireOriginalLibraryLink();
     import('./presence.js').catch(error => console.warn('Library presence unavailable:', error.message));
   }
 
