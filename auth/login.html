@@ -52,11 +52,13 @@
   </main>
 
   <script type="module">
-    import { signInWithGitHub, signInWithGoogle, getSession } from './auth.js?v=2'
+    import { signInWithGitHub, signInWithGoogle, getSession } from './auth.js?v=3'
 
     const status = document.querySelector('#status')
     const github = document.querySelector('#github-login')
     const google = document.querySelector('#google-login')
+
+    const HOME_URL = new URL('../index.html', window.location.href).href
 
     function setBusy(provider) {
       status.textContent = `Connecting to ${provider}…`
@@ -80,7 +82,7 @@
 
     getSession().then((session) => {
       if (session?.user) {
-        status.textContent = `Already signed in as ${session.user.email || 'your account'}.`
+        window.location.replace(HOME_URL)
       }
     }).catch(() => {})
   </script>
