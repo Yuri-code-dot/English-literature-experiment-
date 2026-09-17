@@ -125,18 +125,19 @@
     }
   }
 
-  function wireOriginalLibraryLink() {
+  function wireLabLink() {
     const link = document.querySelector('.original');
     if (!link) return;
-    link.href = 'https://english-library-ibs9res1z-yuri-code-dots-projects.vercel.app/';
+    link.href = 'https://tensoramax.me/Tensoramax-Lab-/';
     link.target = '_blank';
     link.rel = 'noopener';
+    link.textContent = 'OPEN TENSORAMAX LAB ↗';
   }
 
   function boot() {
     addMenu();
     addStatusAndAuth();
-    wireOriginalLibraryLink();
+    wireLabLink();
     import('./presence.js').catch(error => console.warn('Library presence unavailable:', error.message));
   }
 
