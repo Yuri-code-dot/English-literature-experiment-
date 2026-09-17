@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#eee9dc">
+<meta name="description" content="English Literature Library member profile">
+<title>Profile / English Literature Library</title>
+<link rel="stylesheet" href="./profile.css">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <a class="brand" href="../index.html" aria-label="English Literature Library home">
+      <span class="brand-mark">EL</span>
+      <span><b>English Literature Library</b><small>TENSORAMAX LAB</small></span>
+    </a>
+    <nav class="topnav" aria-label="Primary">
+      <a href="../index.html">Home</a><a href="../index.html#catalogue">Explore</a><a href="../index.html#authors">Authors</a><a href="../index.html#timeline">Periods</a>
+    </nav>
+    <div class="top-actions"><span class="mono">MEMBER / PROFILE</span><button id="logout" type="button">LOG OUT</button></div>
+  </header>
+
+  <aside class="sidebar">
+    <a href="../index.html">⌂ <span>Home</span></a>
+    <a href="../index.html#catalogue">▤ <span>Library</span></a>
+    <a href="../index.html#authors">♧ <span>Authors</span></a>
+    <a href="../index.html#timeline">◫ <span>Periods</span></a>
+    <a href="../index.html#catalogue">▥ <span>Curriculum</span></a>
+    <div class="side-rule"></div>
+    <a href="#library">⌗ <span>My Library</span></a>
+    <a class="active" href="./profile.html">♙ <span>Profile</span></a>
+    <a href="#settings">⚙ <span>Settings</span></a>
+    <div class="side-quote">“Good books<br><em>build better minds.</em>”<small>— TENSORAMAX LAB</small></div>
+    <div class="side-mode">◐ <span>Paper</span></div>
+  </aside>
+
+  <main>
+    <section class="cover" aria-label="Profile cover">
+      <div class="cover-image"></div>
+      <div class="cover-overlay"></div>
+      <div class="cover-copy">
+        <span class="mono">ENGLISH LITERATURE LIBRARY / MEMBER ARCHIVE</span>
+        <h1>“A library is not just a place,<br><em>but a world of possible selves.”</em></h1>
+        <span class="mono">— TENSORAMAX LAB</span>
+      </div>
+      <button class="cover-edit" type="button">✎ EDIT COVER</button>
+    </section>
+
+    <section class="profile-head">
+      <div class="avatar-wrap"><img id="avatar" alt="Profile avatar"><span class="online"></span></div>
+      <div class="identity">
+        <div class="name-row"><h2 id="displayName">Loading…</h2><span id="roleBadge" class="role-badge">READER</span></div>
+        <div class="handle" id="handle">@member</div>
+        <div class="roles" id="roles">Reader · Learner · Library Member</div>
+        <p id="bio">A reader exploring the world of literature, one page at a time.</p>
+        <div class="details"><span>⌖ <b>Library Member</b></span><span>◷ <b id="joined">Joined recently</b></span><span>◈ <b id="emailLabel">Authenticated member</b></span></div>
+      </div>
+      <button class="edit-profile" type="button" id="editProfile">✎ EDIT PROFILE</button>
+    </section>
+
+    <section class="stats" aria-label="Library statistics">
+      <article><span class="stat-icon">▤</span><strong id="bookCount">0</strong><small>Books in Library</small></article>
+      <article><span class="stat-icon">▱</span><strong id="collectionCount">0</strong><small>Collections</small></article>
+      <article><span class="stat-icon">□</span><strong id="noteCount">0</strong><small>Notes</small></article>
+      <article><span class="stat-icon">♡</span><strong id="favoriteCount">0</strong><small>Favorites</small></article>
+    </section>
+
+    <section class="content-grid">
+      <div class="main-column">
+        <nav class="tabs" aria-label="Profile sections"><button class="active">Overview</button><button>Library</button><button>Collections</button><button>Notes</button><button>Activity</button></nav>
+        <div class="two-panels">
+          <article class="panel about"><span class="panel-kicker">ABOUT</span><h3 id="aboutTitle">Curiosity drives everything.</h3><p id="aboutText">This member profile is connected to the English Literature Library. Your identity and reading activity live alongside the catalogue.</p><div class="tags"><span>#EnglishLiterature</span><span>#Reading</span><span>#Learning</span><span>#Curiosity</span></div></article>
+          <article class="panel reading"><span class="panel-kicker">CURRENTLY READING</span><div class="book-mini"><div class="book-cover">EL<br><i>LIBRARY</i></div><div><h3>Explore the catalogue</h3><p>Choose a work from the library and begin a reading session.</p><a href="../index.html#catalogue">OPEN LIBRARY ↗</a></div></div><div class="activity"><span class="panel-kicker">RECENT ACTIVITY</span><p><b>Joined the library</b><small>Authentication connected</small></p><p><b>Profile created</b><small>Your member identity is ready</small></p></div></article>
+        </div>
+        <article class="library-panel" id="library"><div><span class="panel-kicker">YOUR LIBRARY VIEW</span><h3 id="libraryHeadline">The complete catalogue.</h3><p>The number here mirrors the books available in the public English Literature Library. It is not a personal “books read” count.</p></div><a class="red-button" href="../index.html#catalogue">BROWSE BOOKS ↗</a></article>
+      </div>
+      <aside class="right-column">
+        <article class="panel identity-card"><span class="panel-kicker">IDENTITY</span><div class="id-box"><div class="id-crown">♛</div><strong id="publicId">TL-XXXXXX</strong><span id="idRole">READER</span><small>PUBLIC LIBRARY ID</small></div><p id="identityNote">A member of the English Literature Library.</p></article>
+        <article class="panel links"><span class="panel-kicker">LINKS</span><a href="../index.html">⌂ <span>English Literature Library</span> ↗</a><a href="https://github.com/Yuri-code-dot" target="_blank" rel="noopener">◉ <span>GitHub</span> ↗</a><a href="https://tensoramax.me" target="_blank" rel="noopener">⌁ <span>TensoraMax Lab</span> ↗</a></article>
+        <article class="panel quote"><span class="panel-kicker">LIBRARY NOTE</span><blockquote>“Knowledge belongs to everyone.”</blockquote><small>— TENSORAMAX LAB</small></article>
+      </aside>
+    </section>
+  </main>
+</div>
+<div id="error" class="error" hidden></div>
+<script type="module" src="./profile.js?v=1"></script>
+</body>
+</html>
