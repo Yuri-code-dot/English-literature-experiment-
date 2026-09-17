@@ -5,6 +5,22 @@
 (function () {
   const SOURCE = 'https://raw.githubusercontent.com/Yuri-code-dot/English-literature-experiment-/61c081167060ef2af548641eaa1a7544bbac5d11/data.js';
   const ORIGINAL_LIBRARY = 'https://english-library-ibs9res1z-yuri-code-dots-projects.vercel.app/';
+  // Shared catalogue registry. Content lives separately from the UI so every
+  // discipline can plug into the same catalogue and Reading Room engine.
+  window.LIBRARY_CATALOGUES = {
+    'english-literature': { id: 'english-literature', name: 'English Literature', data: 'books' },
+    'history': { id: 'history', name: 'History', data: 'history' },
+    'political-science': { id: 'political-science', name: 'Political Science', data: 'politicalScience' },
+    'economics': { id: 'economics', name: 'Economics', data: 'economics' },
+    'accountancy': { id: 'accountancy', name: 'Accountancy', data: 'accountancy' },
+    'physics': { id: 'physics', name: 'Physics', data: 'physics' },
+    'chemistry': { id: 'chemistry', name: 'Chemistry', data: 'chemistry' },
+    'biology': { id: 'biology', name: 'Biology', data: 'biology' },
+    'mathematics': { id: 'mathematics', name: 'Mathematics', data: 'mathematics' },
+    'computer-science': { id: 'computer-science', name: 'Computer Science', data: 'computerScience' },
+    'programming': { id: 'programming', name: 'Programming', data: 'programming' },
+    'ai-ml': { id: 'ai-ml', name: 'AI / Machine Learning', data: 'aiMl' }
+  };
   const LAB = 'https://tensoramax.me/Tensoramax-Lab-/';
 
   try {
