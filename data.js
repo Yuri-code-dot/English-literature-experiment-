@@ -34,7 +34,7 @@
     if (window.LIBRARY_DATA && Array.isArray(window.LIBRARY_DATA.books)) {
       const shared = window.LIBRARY_DATA.books.find(book => book.slug === 'frankenstein');
       if (shared) {
-        shared.contentUrl = 'https://raw.githubusercontent.com/Yuri-code-dot/TEST-CODE/main/catalogues/english-literature/books/frankenstein/content.txt';
+        shared.contentUrl = 'https://cdn.jsdelivr.net/gh/Yuri-code-dot/TEST-CODE@main/catalogues/english-literature/books/frankenstein/content.txt';
         shared.contentType = 'text';
         shared.source = 'TEST-CODE / Project Gutenberg #84';
         shared.license = 'Public Domain';
