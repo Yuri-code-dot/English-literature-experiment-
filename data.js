@@ -29,6 +29,17 @@
     xhr.send(null);
     if (xhr.status >= 200 && xhr.status < 300) new Function(xhr.responseText)();
     else throw new Error('Catalogue source returned ' + xhr.status);
+
+    // Shared repository content pilot: Frankenstein is served from TEST-CODE.
+    if (window.LIBRARY_DATA && Array.isArray(window.LIBRARY_DATA.books)) {
+      const shared = window.LIBRARY_DATA.books.find(book => book.slug === 'frankenstein');
+      if (shared) {
+        shared.contentUrl = 'https://raw.githubusercontent.com/Yuri-code-dot/TEST-CODE/main/catalogues/english-literature/books/frankenstein/content.txt';
+        shared.contentType = 'text';
+        shared.source = 'TEST-CODE / Project Gutenberg #84';
+        shared.license = 'Public Domain';
+      }
+    }
   } catch (error) {
     console.error('English Literature Library data bootstrap failed:', error);
     window.LIBRARY_DATA = window.LIBRARY_DATA || { books: [] };
