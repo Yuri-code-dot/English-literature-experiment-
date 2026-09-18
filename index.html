@@ -51,7 +51,7 @@
   </div>
   <div class="library-stats">
     <article class="library-stat"><span>Catalogues</span><b id="statCatalogues">12</b><span>Fields and disciplines</span></article>
-    <article class="library-stat"><span>English Literature</span><b id="statEnglish">33</b><span>Current catalogue records</span></article>
+    <article class="library-stat"><span>Indexed works</span><b id="statRecords">40+</b><span>Across current catalogues</span></article>
     <article class="library-stat"><span>Reading Room</span><b>01</b><span>Shared reading experience</span></article>
     <article class="library-stat"><span>Status</span><b>∞</b><span>Designed to keep growing</span></article>
   </div>
@@ -121,7 +121,7 @@
 <script src="data.js"></script><script src="catalogues.js"></script>
 <script>
 const books=LIBRARY_DATA.books||[];const CATALOGUES=[
- {id:'english-literature',name:'English Literature',kicker:'ACTIVE CATALOGUE',description:'Literary works, authors, periods, genres, themes and reading copies.',count:()=>books.length,active:true},
+ {id:'english-literature',name:'English Literature',kicker:'CATALOGUE 01',description:'Literary works, authors, periods, genres, themes and reading copies.',count:()=>books.length},
  {id:'history',name:'History',kicker:'CATALOGUE 02',description:'Historical works, timelines, civilizations, events and reference material.',count:()=>((window.LIBRARY_CATALOGUE_BOOKS?.['history']||[]).length)},
  {id:'political-science',name:'Political Science',kicker:'CATALOGUE 03',description:'Political thought, institutions, constitutions, theory and civic study.',count:()=>((window.LIBRARY_CATALOGUE_BOOKS?.['political-science']||[]).length)},
  {id:'economics',name:'Economics',kicker:'CATALOGUE 04',description:'Microeconomics, macroeconomics, development, markets and finance.',count:()=>((window.LIBRARY_CATALOGUE_BOOKS?.['economics']||[]).length)},
@@ -149,7 +149,7 @@ function renderSubjects(){const entries=Object.entries(subjects);$('subjectGrid'
 function renderTimeline(){$('timelineGrid').innerHTML=periods.map(([k,n,y])=>{const ws=books.filter(b=>b.period===k);return `<article class="era"><span class="year">${y}</span><h3>${n}</h3><p>${ws.length} catalogue record${ws.length===1?'':'s'} in this experiment.</p><button class="chip" data-period="${k}" style="margin-top:15px">VIEW WORKS ↗</button></article>`}).join('');document.querySelectorAll('[data-period]').forEach(x=>x.onclick=()=>{filter=x.dataset.period;query='';$('search').value='';renderChips();renderBooks();location.hash='catalogue'})}
 function initCookieNotice(){const el=$('cookieNotice');if(!el)return;const saved=localStorage.getItem('el-cookie-choice');if(saved)el.style.display='none';$('cookieEssential').onclick=()=>{localStorage.setItem('el-cookie-choice','essential');el.style.display='none'};$('cookieAccept').onclick=()=>{localStorage.setItem('el-cookie-choice','accepted');el.style.display='none'}}
 function buildSignal(){const grid=$('signalGrid');if(!grid)return;const chars=['·','·','·','{','}','[',']','<','>','+','×','0','1','A','I','/','\\','◆','◇','░','▒','▓'];let cells=[];for(let i=0;i<72*9;i++){const el=document.createElement('span');el.className='signal-cell';el.textContent=chars[Math.floor(Math.random()*chars.length)];grid.appendChild(el);cells.push(el)}let tick=0;const animate=()=>{tick++;cells.forEach((el,i)=>{const wave=Math.sin(i*.31+tick*.035)+Math.sin(i*.071-tick*.018);el.classList.toggle('hot',wave>1.25);el.classList.toggle('block',((i+tick*2)%97===0)||((i+tick)%151===0));el.classList.toggle('dark',((i-tick)%173===0));el.classList.toggle('bar',(i%29===0||i%31===0)&&wave>.25);if(Math.random()<.025)el.textContent=chars[Math.floor(Math.random()*chars.length)]});grid.style.transform=`translate3d(${Math.sin(tick*.008)*18}px,${Math.cos(tick*.006)*3}px,0)`;requestAnimationFrame(animate)};requestAnimationFrame(animate)}
-initCookieNotice();renderCatalogues();$('catalogueCount').textContent=`${CATALOGUES.length} CATALOGUES`;$('statCatalogues').textContent=CATALOGUES.length;$('statEnglish').textContent=books.length;buildSignal();
+initCookieNotice();renderCatalogues();$('catalogueCount').textContent=`${CATALOGUES.length} CATALOGUES`;$('statCatalogues').textContent=CATALOGUES.length;$('statRecords').textContent=`${CATALOGUES.reduce((sum,c)=>sum+c.count(),0)}+`;buildSignal();
 </script>
 </body>
 </html>
