@@ -1,5 +1,5 @@
 /*
- * English Literature Library / Experimental Edition
+ * ἔργον / TensoraMax Lab Digital Library
  * Shared UI bootstrap for navigation, status, profile, and footer links.
  */
 (function () {
@@ -29,6 +29,23 @@
     xhr.send(null);
     if (xhr.status >= 200 && xhr.status < 300) new Function(xhr.responseText)();
     else throw new Error('Catalogue source returned ' + xhr.status);
+
+
+      // Shared repository reading copies: readable public-domain works are served from TEST-CODE.
+      const sharedContent = {
+        'pride-and-prejudice': 'https://cdn.jsdelivr.net/gh/Yuri-code-dot/TEST-CODE@main/catalogues/english-literature/books/pride-and-prejudice/content.txt',
+        'great-expectations': 'https://cdn.jsdelivr.net/gh/Yuri-code-dot/TEST-CODE@main/catalogues/english-literature/books/great-expectations/content.txt',
+        'hamlet': 'https://cdn.jsdelivr.net/gh/Yuri-code-dot/TEST-CODE@main/catalogues/english-literature/books/hamlet/content.txt'
+      };
+      Object.entries(sharedContent).forEach(([slug, contentUrl]) => {
+        const shared = window.LIBRARY_DATA.books.find(book => book.slug === slug);
+        if (shared) {
+          shared.contentUrl = contentUrl;
+          shared.contentType = 'text';
+          shared.source = 'TEST-CODE / Project Gutenberg';
+          shared.license = 'Public Domain';
+        }
+      });
 
     // Shared repository content pilot: Frankenstein is served from TEST-CODE.
     if (window.LIBRARY_DATA && Array.isArray(window.LIBRARY_DATA.books)) {
@@ -65,7 +82,7 @@
     if (document.querySelector('.library-menu-button')) return;
     const scrim = document.createElement('div'); scrim.className = 'library-menu-scrim'; document.body.appendChild(scrim);
     const drawer = document.createElement('aside'); drawer.className = 'library-drawer'; drawer.setAttribute('aria-label','Library navigation');
-    drawer.innerHTML = `<div class="drawer-kicker">English Literature Library</div><h2>Read.<br>Think.<br>Discuss.</h2><nav><a href="index.html">Library <span>01</span></a><a href="index.html#catalogue">Catalogue <span>02</span></a><a href="index.html#authors">Authors <span>03</span></a><a href="index.html#timeline">Periods <span>04</span></a><a class="drawer-community" href="community/index.html">Discussion Room <span>↗</span></a><a href="profile/profile.html">Profile <span>↗</span></a></nav><section class="library-patches"><button class="library-patch-toggle" type="button" aria-expanded="false">Patches &amp; Updates <span class="patch-arrow">＋</span></button><div class="library-patch-list" hidden><a class="library-patch" href="https://github.com/Yuri-code-dot/English-literature-experiment-/commit/cc2389cc2d1708012bfdc263939ef495d8c3e43a" target="_blank" rel="noopener"><span class="patch-title"><span>Profile state hardening</span><span class="patch-date">NEW</span></span><span class="patch-note">Loading, timeout, retry, and error handling for the member profile.</span></a><a class="library-patch" href="https://github.com/Yuri-code-dot/English-literature-experiment-/commit/2df3afd99c445305c7ce2f35a077f72bb2e4279e" target="_blank" rel="noopener"><span class="patch-title"><span>Profile feedback layer</span><span class="patch-date">PATCH</span></span><span class="patch-note">Visible loading and error states so failed requests no longer feel silent.</span></a><a class="library-patch" href="https://github.com/Yuri-code-dot/English-literature-experiment-/commit/0b5e894142e7aa709266290d2a892d9e53cc33e3" target="_blank" rel="noopener"><span class="patch-title"><span>Reading engine upgrade</span><span class="patch-date">PATCH</span></span><span class="patch-note">Expanded public-domain loading, retry behavior, poetry handling, and Wikisource support.</span></a></div></section><div class="drawer-footer">Experimental Beta · v0.1<br>Powered by TensoraMax Lab</div>`;
+    drawer.innerHTML = `<div class="drawer-kicker">ἔργον / DIGITAL LIBRARY</div><h2>Read.<br>Explore.<br>Build.</h2><nav><a href="index.html">Home <span>01</span></a><a href="index.html#catalogue">Catalogues <span>02</span></a><a href="index.html#library">Library <span>03</span></a><a href="index.html#lab">Lab <span>04</span></a><a class="drawer-community" href="community/index.html">Discussion Room <span>↗</span></a><a href="profile/profile.html">Profile <span>↗</span></a></nav><section class="library-patches"><button class="library-patch-toggle" type="button" aria-expanded="false">Patches &amp; Updates <span class="patch-arrow">＋</span></button><div class="library-patch-list" hidden><a class="library-patch" href="https://github.com/Yuri-code-dot/English-literature-experiment-/commit/cc2389cc2d1708012bfdc263939ef495d8c3e43a" target="_blank" rel="noopener"><span class="patch-title"><span>Profile state hardening</span><span class="patch-date">NEW</span></span><span class="patch-note">Loading, timeout, retry, and error handling for the member profile.</span></a><a class="library-patch" href="https://github.com/Yuri-code-dot/English-literature-experiment-/commit/2df3afd99c445305c7ce2f35a077f72bb2e4279e" target="_blank" rel="noopener"><span class="patch-title"><span>Profile feedback layer</span><span class="patch-date">PATCH</span></span><span class="patch-note">Visible loading and error states so failed requests no longer feel silent.</span></a><a class="library-patch" href="https://github.com/Yuri-code-dot/English-literature-experiment-/commit/0b5e894142e7aa709266290d2a892d9e53cc33e3" target="_blank" rel="noopener"><span class="patch-title"><span>Reading engine upgrade</span><span class="patch-date">PATCH</span></span><span class="patch-note">Expanded public-domain loading, retry behavior, poetry handling, and Wikisource support.</span></a></div></section><div class="drawer-footer">ἔργον · Digital Library<br>Powered by TensoraMax Lab</div>`;
     document.body.appendChild(drawer);
     const patchToggle = drawer.querySelector('.library-patch-toggle');
     const patchList = drawer.querySelector('.library-patch-list');
