@@ -33,9 +33,9 @@
 
       // Shared repository reading copies: readable public-domain works are served from TEST-CODE.
       const sharedContent = {
-        'pride-and-prejudice': 'https://cdn.jsdelivr.net/gh/Yuri-code-dot/TEST-CODE@main/catalogues/english-literature/books/pride-and-prejudice/content.txt',
-        'great-expectations': 'https://cdn.jsdelivr.net/gh/Yuri-code-dot/TEST-CODE@main/catalogues/english-literature/books/great-expectations/content.txt',
-        'hamlet': 'https://cdn.jsdelivr.net/gh/Yuri-code-dot/TEST-CODE@main/catalogues/english-literature/books/hamlet/content.txt'
+        'pride-and-prejudice': 'content/english-literature/books/pride-and-prejudice/content.txt',
+        'great-expectations': 'content/english-literature/books/great-expectations/content.txt',
+        'hamlet': 'content/english-literature/books/hamlet/content.txt'
       };
       Object.entries(sharedContent).forEach(([slug, contentUrl]) => {
         const shared = window.LIBRARY_DATA.books.find(book => book.slug === slug);
@@ -51,7 +51,7 @@
     if (window.LIBRARY_DATA && Array.isArray(window.LIBRARY_DATA.books)) {
       const shared = window.LIBRARY_DATA.books.find(book => book.slug === 'frankenstein');
       if (shared) {
-        shared.contentUrl = 'https://cdn.jsdelivr.net/gh/Yuri-code-dot/TEST-CODE@main/catalogues/english-literature/books/frankenstein/content.txt';
+        shared.contentUrl = 'content/english-literature/books/frankenstein/content.txt';
         shared.contentType = 'text';
         shared.source = 'TEST-CODE / Project Gutenberg #84';
         shared.license = 'Public Domain';
