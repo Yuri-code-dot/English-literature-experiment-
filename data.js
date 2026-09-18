@@ -33,6 +33,7 @@
 
       // Shared repository reading copies: readable public-domain works are served from TEST-CODE.
       const sharedContent = {
+        'frankenstein': 'content/english-literature/books/frankenstein/content.txt',
         'pride-and-prejudice': 'content/english-literature/books/pride-and-prejudice/content.txt',
         'great-expectations': 'content/english-literature/books/great-expectations/content.txt',
         'hamlet': 'content/english-literature/books/hamlet/content.txt'
