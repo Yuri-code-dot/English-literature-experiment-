@@ -73,18 +73,42 @@
         <nav class="tabs" aria-label="Profile sections"><button class="active">Overview</button><button>Library</button><button>Collections</button><button>Notes</button><button>Activity</button></nav>
         <div class="two-panels">
           <article class="panel about"><span class="panel-kicker">ABOUT</span><h3 id="aboutTitle">Curiosity drives everything.</h3><p id="aboutText">This member profile is connected to the English Literature Library. Your identity and reading activity live alongside the catalogue.</p><div class="tags"><span>#EnglishLiterature</span><span>#Reading</span><span>#Learning</span><span>#Curiosity</span></div></article>
-          <article class="panel reading"><span class="panel-kicker">CURRENTLY READING</span><div class="book-mini"><div class="book-cover">EL<br><i>LIBRARY</i></div><div><h3>Explore the catalogue</h3><p>Choose a work from the library and begin a reading session.</p><a href="../index.html#catalogue">OPEN LIBRARY ↗</a></div></div><div class="activity"><span class="panel-kicker">RECENT ACTIVITY</span><p><b>Joined the library</b><small>Authentication connected</small></p><p><b>Profile created</b><small>Your member identity is ready</small></p></div></article>
+          <article class="panel reading"><span class="panel-kicker">CURRENTLY READING</span><div class="book-mini"><div class="book-cover">EL<br><i>LIBRARY</i></div><div><h3 id="readingTitle">Explore the catalogue</h3><p id="readingText">Choose a work from the library and begin a reading session.</p><a href="../index.html#catalogue">OPEN LIBRARY ↗</a></div></div><div class="activity"><span class="panel-kicker">RECENT ACTIVITY</span><p><b>Joined the library</b><small>Authentication connected</small></p><p><b>Profile created</b><small>Your member identity is ready</small></p></div></article>
         </div>
-        <article class="library-panel" id="library"><div><span class="panel-kicker">YOUR LIBRARY VIEW</span><h3 id="libraryHeadline">The complete catalogue.</h3><p>The number here mirrors the books available in the public English Literature Library. It is not a personal “books read” count.</p></div><a class="red-button" href="../index.html#catalogue">BROWSE BOOKS ↗</a></article>
+        <article class="library-panel" id="library"><div><span class="panel-kicker">YOUR LIBRARY VIEW</span><h3 id="libraryHeadline">The complete catalogue.</h3><p id="libraryDescription">The number here mirrors the books available in the public English Literature Library. It is not a personal “books read” count.</p></div><a class="red-button" href="../index.html#catalogue">BROWSE BOOKS ↗</a></article>
       </div>
       <aside class="right-column">
         <article class="panel identity-card"><span class="panel-kicker">IDENTITY</span><div class="id-box"><div class="id-crown">♛</div><strong id="publicId">TL-XXXXXX</strong><span id="idRole">READER</span><small>PUBLIC LIBRARY ID</small></div><p id="identityNote">A member of the English Literature Library.</p></article>
         <article class="panel links"><span class="panel-kicker">LINKS</span><a href="../index.html">⌂ <span>English Literature Library</span> ↗</a><a href="https://github.com/Yuri-code-dot" target="_blank" rel="noopener">◉ <span>GitHub</span> ↗</a><a href="https://tensoramax.me/Tensoramax-Lab-/" target="_blank" rel="noopener">⌁ <span>TensoraMax Lab</span> ↗</a></article>
-        <article class="panel quote"><span class="panel-kicker">LIBRARY NOTE</span><blockquote>“Knowledge belongs to everyone.”</blockquote><small>— TENSORAMAX LAB</small></article>
+        <article class="panel quote"><span class="panel-kicker">LIBRARY NOTE</span><blockquote id="libraryNote">“Knowledge belongs to everyone.”</blockquote><small>— TENSORAMAX LAB</small></article>
       </aside>
     </section>
   </main>
 </div>
+<section id="profileEditor" class="profile-editor" hidden aria-hidden="true">
+  <div class="editor-backdrop" data-close-editor></div>
+  <div class="editor-dialog" role="dialog" aria-modal="true" aria-labelledby="editorTitle">
+    <div class="editor-head">
+      <div><span class="panel-kicker">PROFILE EDITOR</span><h2 id="editorTitle">Shape your library identity.</h2><p>Edit the words that appear across your member page.</p></div>
+      <button class="editor-close" type="button" data-close-editor aria-label="Close editor">×</button>
+    </div>
+    <form id="profileForm" class="editor-form">
+      <label>Display name<input name="display_name" maxlength="80" autocomplete="name"></label>
+      <label>Username<input name="username" maxlength="40" pattern="[A-Za-z0-9_]+" autocomplete="username"></label>
+      <label>Bio<textarea name="bio" maxlength="280" rows="3"></textarea></label>
+      <label>About title<input name="about_title" maxlength="120"></label>
+      <label>About text<textarea name="about_text" maxlength="500" rows="4"></textarea></label>
+      <label>Currently reading title<input name="reading_title" maxlength="120"></label>
+      <label>Currently reading description<textarea name="reading_text" maxlength="300" rows="3"></textarea></label>
+      <label>Library view headline<input name="library_headline" maxlength="120"></label>
+      <label>Library view description<textarea name="library_description" maxlength="300" rows="3"></textarea></label>
+      <label>Identity note<textarea name="identity_note" maxlength="220" rows="2"></textarea></label>
+      <label>Library note<textarea name="library_note" maxlength="180" rows="2"></textarea></label>
+      <label>Tags <span class="field-hint">comma separated</span><input name="profile_tags" maxlength="240" placeholder="English Literature, Reading, Learning, Curiosity"></label>
+      <div class="editor-actions"><button type="button" class="editor-cancel" data-close-editor>CANCEL</button><button type="submit" class="red-button">SAVE CHANGES ↗</button></div>
+    </form>
+  </div>
+</section>
 <div id="error" class="error" hidden role="alert" aria-live="assertive"><span data-error-message></span><button data-retry type="button">RETRY</button></div>
 <script type="module" src="./profile.js?v=3"></script>
 </body>
