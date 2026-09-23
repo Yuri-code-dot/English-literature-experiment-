@@ -134,6 +134,11 @@ async function handleMediaUpload(input, kind) {
   }
 }
 
+function profileCopy(profile, key, fallback) {
+  const value = profile?.[key]
+  return typeof value === 'string' && value.trim() ? value.trim() : fallback
+}
+
 function setProfile(profile, user) {
   const role = profile?.role || 'reader'
   const founder = role === 'founder' || profile?.public_uid === 'TENSORAMAX LAB'
@@ -147,11 +152,16 @@ function setProfile(profile, user) {
   $('roleBadge').textContent = roleLabel(role)
   $('idRole').textContent = roleLabel(role)
   $('publicId').textContent = founder ? 'TENSORAMAX LAB' : (profile?.public_uid || 'TL-XXXXXX')
-  $('bio').textContent = profile?.bio || (founder ? 'Building a library for curious minds. Where literature meets technology.' : 'A reader exploring the world of literature, one page at a time.')
-  $('aboutText').textContent = founder
-    ? 'TensoraMax Lab is an independent research and development studio building tools, experiments, and spaces where literature, technology, and human creativity can coexist.'
-    : 'A member of the English Literature Library exploring literature, learning, and ideas through the shared catalogue.'
-  $('identityNote').textContent = founder ? 'Founder identity for the English Literature Library experiment.' : 'A member identity connected to the English Literature Library.'
+  $('bio').textContent = profileCopy(profile, 'bio', founder ? 'Building a library for curious minds. Where literature meets technology.' : 'A reader exploring the world of literature, one page at a time.')
+  $('aboutTitle').textContent = profileCopy(profile, 'about_title', 'Curiosity drives everything.')
+  $('aboutText').textContent = profileCopy(profile, 'about_text', founder ? 'TensoraMax Lab is an independent research and development studio building tools, experiments, and spaces where literature, technology, and human creativity can coexist.' : 'A member of the English Literature Library exploring literature, learning, and ideas through the shared catalogue.')
+  $('readingTitle').textContent = profileCopy(profile, 'reading_title', 'Explore the catalogue')
+  $('readingText').textContent = profileCopy(profile, 'reading_text', 'Choose a work from the library and begin a reading session.')
+  $('libraryDescription').textContent = profileCopy(profile, 'library_description', 'The number here mirrors the books available in the public English Literature Library. It is not a personal “books read” count.')
+  $('identityNote').textContent = profileCopy(profile, 'identity_note', founder ? 'Founder identity for the English Literature Library experiment.' : 'A member identity connected to the English Literature Library.')
+  $('libraryNote').textContent = '“' + profileCopy(profile, 'library_note', 'Knowledge belongs to everyone.') + '”'
+  const tags = Array.isArray(profile?.profile_tags) && profile.profile_tags.length ? profile.profile_tags : ['English Literature','Reading','Learning','Curiosity']
+  document.querySelector('.tags').innerHTML = tags.map((tag) => '<span>#' + esc(tag) + '</span>').join('')
   $('joined').textContent = profile?.created_at ? `Joined ${new Date(profile.created_at).toLocaleDateString(undefined, { month:'short', year:'numeric' })}` : 'Joined recently'
   $('emailLabel').textContent = 'Verified account'
   const avatarUrl = profile?.avatar_url || user.user_metadata?.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=eee9dc&color=11110f&size=320`
@@ -165,7 +175,8 @@ function setProfile(profile, user) {
 
   const count = catalogueCount()
   $('bookCount').textContent = count
-  $('libraryHeadline').textContent = count ? `${count} works in the catalogue.` : 'The complete catalogue.'
+  if (!profile?.library_headline) $('libraryHeadline').textContent = count ? (count + ' works in the catalogue.') : 'The complete catalogue.'
+  else $('libraryHeadline').textContent = profile.library_headline
 }
 
 function showError(message, canRetry = true) {
@@ -229,6 +240,58 @@ async function loadProfile() {
   return true
 }
 
+function openEditor(profile) {
+  const modal = $('profileEditor')
+  const form = $('profileForm')
+  if (!modal || !form) return
+  const fields = ['display_name','username','bio','about_title','about_text','reading_title','reading_text','library_headline','library_description','identity_note','library_note']
+  fields.forEach((key) => { form.elements[key].value = profile?.[key] || '' })
+  form.elements.profile_tags.value = Array.isArray(profile?.profile_tags) ? profile.profile_tags.join(', ') : ''
+  modal.hidden = false
+  modal.setAttribute('aria-hidden','false')
+  document.body.classList.add('profile-editor-open')
+  form.elements.display_name.focus()
+}
+
+function closeEditor() {
+  const modal = $('profileEditor')
+  if (!modal) return
+  modal.hidden = true
+  modal.setAttribute('aria-hidden','true')
+  document.body.classList.remove('profile-editor-open')
+}
+
+async function saveProfileCopy(form) {
+  const { data: { session }, error: sessionError } = await withTimeout(supabase.auth.getSession(), 'Authentication')
+  if (sessionError) throw sessionError
+  const user = session?.user
+  if (!user) throw new Error('Your session expired. Please sign in again.')
+
+  const formData = new FormData(form)
+  const username = String(formData.get('username') || '').trim().toLowerCase()
+  if (username && !/^[a-z0-9_]+$/.test(username)) throw new Error('Username can only use letters, numbers, and underscores.')
+
+  const tags = String(formData.get('profile_tags') || '').split(',').map((tag) => tag.trim().replace(/^#+/, '')).filter(Boolean).slice(0, 8)
+  const payload = {
+    display_name: String(formData.get('display_name') || '').trim() || null,
+    username: username || null,
+    bio: String(formData.get('bio') || '').trim() || null,
+    about_title: String(formData.get('about_title') || '').trim() || null,
+    about_text: String(formData.get('about_text') || '').trim() || null,
+    reading_title: String(formData.get('reading_title') || '').trim() || null,
+    reading_text: String(formData.get('reading_text') || '').trim() || null,
+    library_headline: String(formData.get('library_headline') || '').trim() || null,
+    library_description: String(formData.get('library_description') || '').trim() || null,
+    identity_note: String(formData.get('identity_note') || '').trim() || null,
+    library_note: String(formData.get('library_note') || '').trim() || null,
+    profile_tags: tags.length ? tags : null
+  }
+
+  const { error } = await withTimeout(supabase.from('profiles').update(payload).eq('id', user.id), 'Profile save')
+  if (error) throw error
+  return payload
+}
+
 async function init() {
   setLoading(true)
   clearError()
@@ -248,7 +311,36 @@ async function init() {
       }
     })
 
-    $('editProfile').addEventListener('click', () => showError('Profile editing is the next profile-system layer.', false))
+    const currentUser = (await supabase.auth.getUser()).data.user
+    const profileResult = await supabase.from('profiles').select('id,public_uid,username,display_name,avatar_url,cover_url,bio,role,created_at,about_title,about_text,reading_title,reading_text,library_headline,library_description,identity_note,library_note,profile_tags').eq('id', currentUser.id).maybeSingle()
+    if (profileResult.error) throw profileResult.error
+    const currentProfile = profileResult.data || {}
+    $('editProfile').disabled = false
+    $('editProfile').addEventListener('click', () => openEditor(currentProfile))
+
+    document.querySelectorAll('[data-close-editor]').forEach((element) => element.addEventListener('click', closeEditor))
+    $('profileForm').addEventListener('submit', async (event) => {
+      event.preventDefault()
+      const submit = event.currentTarget.querySelector('button[type="submit"]')
+      submit.disabled = true
+      clearError()
+      try {
+        const payload = await saveProfileCopy(event.currentTarget)
+        Object.assign(currentProfile, payload)
+        const session = (await supabase.auth.getSession()).data.session
+        setProfile(currentProfile, session.user)
+        closeEditor()
+        showError('Profile writing updated.', false)
+      } catch (error) {
+        showError(error?.message || 'Could not save your profile.')
+      } finally {
+        submit.disabled = false
+      }
+    })
+
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeEditor()
+    })
 
     $('editCover').addEventListener('click', () => $('coverInput').click())
     $('editAvatar').addEventListener('click', () => $('avatarInput').click())
