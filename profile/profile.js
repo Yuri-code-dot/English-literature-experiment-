@@ -154,7 +154,12 @@ function setProfile(profile, user) {
   $('identityNote').textContent = founder ? 'Founder identity for the English Literature Library experiment.' : 'A member identity connected to the English Literature Library.'
   $('joined').textContent = profile?.created_at ? `Joined ${new Date(profile.created_at).toLocaleDateString(undefined, { month:'short', year:'numeric' })}` : 'Joined recently'
   $('emailLabel').textContent = 'Verified account'
-  $('avatar').src = profile?.avatar_url || user.user_metadata?.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=eee9dc&color=11110f&size=320`
+  const avatarUrl = profile?.avatar_url || user.user_metadata?.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=eee9dc&color=11110f&size=320`
+  $('avatar').src = avatarUrl
+  $('avatar').onerror = () => {
+    $('avatar').removeAttribute('src')
+    $('avatar').alt = name.slice(0, 2).toUpperCase()
+  }
   if (profile?.cover_url) document.querySelector('.cover-image').style.backgroundImage = 'url("' + profile.cover_url + '")'
   document.body.classList.toggle('founder', founder)
 
