@@ -5,6 +5,9 @@ const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY)
 const $ = (id) => document.getElementById(id)
 
 const PROFILE_TIMEOUT_MS = 10000
+const MEDIA_BUCKET = 'profile-media'
+const MAX_IMAGE_BYTES = 8 * 1024 * 1024
+const MAX_IMAGE_DIMENSION = 2400
 
 function esc(value) {
   return String(value ?? '').replace(/[&<>"']/g, (char) => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[char]))
@@ -38,10 +41,97 @@ function catalogueCount() {
 function setLoading(loading) {
   document.body.classList.toggle('profile-loading', loading)
   document.body.setAttribute('aria-busy', String(loading))
-  ;['logout', 'editProfile'].forEach((id) => {
+  ;['logout', 'editProfile', 'editCover', 'editAvatar'].forEach((id) => {
     const element = $(id)
     if (element) element.disabled = loading
   })
+}
+
+function fileExtension(file) {
+  const map = { 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp', 'image/avif': 'avif' }
+  return map[file.type] || 'jpg'
+}
+
+async function prepareImage(file) {
+  if (!file || !file.type.startsWith('image/')) throw new Error('Please choose an image file.')
+  if (file.size > MAX_IMAGE_BYTES) throw new Error('Image is too large. Please choose one under 8 MB.')
+
+  const bitmap = await createImageBitmap(file)
+  const scale = Math.min(1, MAX_IMAGE_DIMENSION / Math.max(bitmap.width, bitmap.height))
+  const width = Math.max(1, Math.round(bitmap.width * scale))
+  const height = Math.max(1, Math.round(bitmap.height * scale))
+  const canvas = document.createElement('canvas')
+  canvas.width = width
+  canvas.height = height
+  const context = canvas.getContext('2d')
+  if (!context) throw new Error('Could not prepare the image.')
+  context.drawImage(bitmap, 0, 0, width, height)
+  bitmap.close()
+
+  const blob = await new Promise((resolve, reject) => {
+    canvas.toBlob((value) => value ? resolve(value) : reject(new Error('Could not prepare the image.')), 'image/webp', 0.86)
+  })
+  return { blob, width, height }
+}
+
+async function uploadProfileImage(file, kind) {
+  const sessionResult = await withTimeout(supabase.auth.getSession(), 'Authentication')
+  if (sessionResult.error) throw sessionResult.error
+  const user = sessionResult.data?.session?.user
+  if (!user) {
+    window.location.replace(new URL('../auth/login.html', window.location.href).href)
+    return
+  }
+
+  const { blob } = await prepareImage(file)
+  const path = user.id + '/' + kind + '.webp'
+
+  const { error: uploadError } = await withTimeout(
+    supabase.storage.from(MEDIA_BUCKET).upload(path, blob, {
+      contentType: 'image/webp',
+      cacheControl: '3600',
+      upsert: true,
+    }),
+    kind + ' image upload'
+  )
+  if (uploadError) throw uploadError
+
+  const { data } = supabase.storage.from(MEDIA_BUCKET).getPublicUrl(path)
+  const publicUrl = data.publicUrl + '?v=' + Date.now()
+
+  const column = kind === 'avatar' ? 'avatar_url' : 'cover_url'
+  const { error: profileError } = await withTimeout(
+    supabase.from('profiles').update({ [column]: publicUrl }).eq('id', user.id),
+    'Profile update'
+  )
+  if (profileError) throw profileError
+
+  return publicUrl
+}
+
+async function handleMediaUpload(input, kind) {
+  const file = input?.files?.[0]
+  if (!file) return
+
+  const target = kind === 'avatar' ? $('avatar') : document.querySelector('.cover-image')
+  const section = kind === 'avatar' ? $('editAvatar') : document.querySelector('.cover')
+  section?.classList.add('media-uploading')
+  clearError()
+
+  try {
+    const url = await uploadProfileImage(file, kind)
+    if (kind === 'avatar') {
+      $('avatar').src = url
+    } else {
+      target.style.backgroundImage = 'url("' + url + '")'
+    }
+    showError((kind === 'avatar' ? 'Profile photo' : 'Cover image') + ' updated.', false)
+  } catch (error) {
+    showError(error?.message || 'Image upload failed.')
+  } finally {
+    section?.classList.remove('media-uploading')
+    input.value = ''
+  }
 }
 
 function setProfile(profile, user) {
@@ -65,6 +155,7 @@ function setProfile(profile, user) {
   $('joined').textContent = profile?.created_at ? `Joined ${new Date(profile.created_at).toLocaleDateString(undefined, { month:'short', year:'numeric' })}` : 'Joined recently'
   $('emailLabel').textContent = 'Verified account'
   $('avatar').src = profile?.avatar_url || user.user_metadata?.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(name)}&background=eee9dc&color=11110f&size=320`
+  if (profile?.cover_url) document.querySelector('.cover-image').style.backgroundImage = 'url("' + profile.cover_url + '")'
   document.body.classList.toggle('founder', founder)
 
   const count = catalogueCount()
@@ -122,7 +213,7 @@ async function loadProfile() {
   const { data: profile, error } = await withTimeout(
     supabase
       .from('profiles')
-      .select('id,public_uid,username,display_name,avatar_url,bio,role,created_at')
+      .select('id,public_uid,username,display_name,avatar_url,cover_url,bio,role,created_at')
       .eq('id', session.user.id)
       .maybeSingle(),
     'Profile'
@@ -153,6 +244,12 @@ async function init() {
     })
 
     $('editProfile').addEventListener('click', () => showError('Profile editing is the next profile-system layer.', false))
+
+    $('editCover').addEventListener('click', () => $('coverInput').click())
+    $('editAvatar').addEventListener('click', () => $('avatarInput').click())
+    $('coverInput').addEventListener('change', () => handleMediaUpload($('coverInput'), 'cover'))
+    $('avatarInput').addEventListener('change', () => handleMediaUpload($('avatarInput'), 'avatar'))
+
     document.querySelectorAll('.tabs button').forEach((button) => {
       button.addEventListener('click', () => {
         document.querySelectorAll('.tabs button').forEach((item) => item.classList.remove('active'))
